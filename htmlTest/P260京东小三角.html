@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    .jd {
+        position: relative;
+        width: 120px;
+        height: 250px;
+        background-color: pink;
+    }
+    .jd span {
+        position:absolute;
+        right: 15px;
+        top: -10px;
+        width: 0;
+        height: 0;
+        /* 为了照顾兼容性 */
+        list-style: 0;
+        font-size: 0;
+        border: 5px solid transparent;
+        border-bottom-color: pink;
+    }
+    .xm {
+        position: relative;
+        margin-top: 30px;
+        width: 500px;
+        height: 300px;
+        background-color: pink;
+        /* 145px */
+    }
+    .xm span {
+        position: absolute;
+        left: 500px;
+        top: 50%;
+        margin-top: -10px;
+        width: 0;
+        height: 0;
+        border: 10px solid transparent;
+        border-left-color: yellowgreen;
+    }
+
+    </style>
+
+</head>
+<body>
+
+    <div class="jd">
+        <span></span>
+    </div>
+
+    <div class="xm">
+        <span></span>
+    </div>
+    
+</body>
+</html>

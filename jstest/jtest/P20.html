@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>仿淘宝关闭二维码</title>
+    <style>
+        .box{
+            position: relative;
+            font-size: 12px;
+            text-align: center;
+            color: red;
+        }
+        .box img{
+            position: absolute;
+            width: 60px;
+            margin-top: 5px;
+            
+
+        }
+        .close-btn{
+            position: absolute;
+            top: 40px;
+            left: 350px;
+            width: 14px;
+            height: 14px;
+            border: 1px solid red;
+            line-height: 14px;
+            font-family: Arial, Helvetica, sans-serif;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="box">
+        <p>淘宝二维码</p>
+        
+        <img src="images/er.webp" alt="">
+        <i class="close-btn">x</i>
+    </div>
+
+    <script>
+        // 1、获取元素
+        var btn = document.querySelector('.close-btn');
+        var box = document.querySelector('.box');
+
+        // 2、注册事件 程序处理
+        btn.onclick = function(){
+            box.style.display = 'none';
+
+        }
+    </script>
+</body>
+</html>

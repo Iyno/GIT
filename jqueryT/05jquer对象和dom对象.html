@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/jquery-3.5.1.js"></script>
+    <style>
+        div {
+            height: 200px;
+            width: 200px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <span></span>
+    
+    <script>
+        // 1、DOM 对象： 用原生js获取过来的对象就是DOM对象
+        var myDiv = document.querySelector('div');//myDiv是DOM对象
+
+        // 2、jquery对象： 用jquer方式获取过来的对象是jquery对象；
+        // 本质：通过$把dom元素进行了包装
+        $('div');//$('div')是一个jquery对象
+
+        // 3、jquery 对象只用使用jquery方法，dom 对象则只能使用原生的js属性和方法
+        myDiv.style.display = 'none';
+        $('span').hide();
+
+    </script>
+    
+</body>
+</html>

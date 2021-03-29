@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         [v-cloak]{
+            display:none;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div v-cloak>{{msg}}</div>
+    </div>
+    <script src="../js/vue.js" type="text/javascript"></script>
+    <script>
+        /*
+        v-cloak指令的用法
+        1、提供样式，在css的style标签里添加样式
+        [v-cloak]{
+            display:none;
+        }
+        2、在插值表达式所在的标签中添加v-cloak指令
+
+        背后的原理：先通过样式隐藏内容，然后在内存中进行值的替换，替换好之后在显示
+        最终的结果
+        */
+        var app = new Vue({
+            el:"#app",
+            data: {
+                msg: "hello vue",
+            }
+        })
+
+    </script>
+    <ol>
+        模板语法概述
+        <li>差值表达式</li>
+        <li>指令</li>
+        <li>事件绑定</li>
+        <li>属性绑定</li>
+        <li>样式绑定</li>
+        <li>分支循环结构</li>
+    </ol>
+    <h2>指令</h2>
+    <ol>
+        什么是指令？
+        <li>什么是自定义属性</li>
+        <li>指令的本质就是自定义属性</li>
+        <li>指令的格式：以v-开始-比如：v-onclick</li>
+    </ol>
+    <ol>
+        v-cloak指令用法
+        <li>插值表达式存在的问题：“闪动”</li>
+        <li>如何解决该问题：使用v-cloak指令</li>
+        <li>解决该问题的原理：先隐藏，替换好值之后再显示最终的值</li>
+    </ol>
+</body>
+</html>

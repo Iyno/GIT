@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <h2>v-if的演示</h2>
+        <div v-if='score>=90'>优秀</div>
+        <div v-else-if='score<90 && score>=80'>良好</div>
+        <div v-else-if='score<80 && score>=60'>一般</div>
+        <div v-else>比较差</div>
+        <h2>测试v-show</h2>
+        <div v-show='flag'>测试</div>
+        <button v-on:click='handle'>切换</button>
+
+    </div>
+    <script type="text/javascript" src="./js/vue.js"></script>
+    <script type="text/javascript">
+        /*
+        分支结构
+        v-show的原理：控制元素样式是否显示 display：none
+        */
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                score: 90,
+                flag: false
+            },
+            methods: {
+                handle: function(){
+                    this.flag= !this.flag;
+                }
+            }
+        });
+
+
+    </script>
+
+    <h2>分支循环结构</h2>
+    1、分支结构
+    v-if
+    v-else
+    v-else-if
+    v-show
+    2、v-if 与v-show的区别
+    1)v-if控制元素是否渲染到页面-
+    2)v-show控制元素是否显示（已经渲染到了页面）-频繁显示的用这个
+
+</body>
+
+</html>

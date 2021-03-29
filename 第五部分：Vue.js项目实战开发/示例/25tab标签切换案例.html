@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .tab ul {
+            overflow: hidden;
+            padding: 0;
+            margin: 0;
+        }
+
+        .tab ul li {
+            box-sizing: border-box;
+            padding: 0;
+            float: left;
+            width: 100px;
+            height: 45px;
+            line-height: 45px;
+            list-style: none;
+            text-align: center;
+            border-top: 1px solid blue;
+            border-right: 1px solid blue;
+            cursor: pointer;
+        }
+
+        .tab ul li:first-child {
+            border-left: 1px solid blue;
+        }
+        /* .tab ul li  */
+        .active {
+            background-color: orange;
+        }
+
+        .tab div {
+            width: 500px;
+            height: 300px;
+            display: none;
+            text-align: center;
+            font-size: 30px;
+            line-height: 300px;
+            border: 1px solid blue;
+            border-top: 0px;
+        }
+        .tab img {
+            width: 500px;
+            height: 300px;
+        }
+        /* .tab div */
+        .tab  .current {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div class="tab">
+            <ul>
+                <!-- 用v-for填充到li和div里 -->
+                <li v-on:click='change(index)' :class='currentIndex==index?"active":""' :key='item.id' v-for='(item,index) in list'>{{item.title}}</li>
+            </ul>
+            <div :class='currentIndex==index?"current":""'
+               :key='item.id' v-for='(item,index) in list'>
+                <img :src="item.path" alt="">
+            </div>
+            
+        </div>
+    </div>
+    <script type="text/javascript" src="./js/vue.js"></script>
+    <script type="text/javascript">
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                currentIndex: 0,//选项卡当前的索引
+                //把数据提取处理放入data
+                list: [{
+                    id: 1,
+                    title: 'apple',
+                    path: './imgs/apple.jpeg'
+                },
+                {
+                    id: 2,
+                    title: 'orange',
+                    path: './imgs/orange.jpeg'
+                }, {
+                    id: 3,
+                    title: 'banana',
+                    path: './imgs/banana.jpeg'
+                }]
+            },
+            methods: {
+                change: function(index){
+                    //在这里实现选项卡切换操作：本质就是操作类名
+                    // 如何操作类名？就是通过currentIndex进行操作
+                    this.currentIndex = index;
+                }
+
+            }
+        });
+
+    </script>
+    实现步骤：
+    1、实现静态UI效果
+    1）用传统的方式实现标签结构和样式
+    2、基于数据重构UI效果
+    1）将静态的结构和样式重构为基于Vue模板语法的形式
+    2）处理事件绑定和js控制逻辑
+    3、声明式编程
+    1）模板的结构和最终显示的效果基本一致
+</body>
+
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <div>{{num}}</div>
+        <div>
+            <button v-on:click='num++'>点击</button>
+            <button @click='num++'>点击</button>
+            <button v-on:click='handle'>点击3</button>
+            <button v-on:click='handle()'>点击4</button>
+            <button v-on:click='handle(123)'>传参</button>
+            <button v-on:click='handle(222,$event)'>事件对象传递</button>
+            <h2>演示阻止冒泡--.stop</h2>
+            <div v-on:click='handle0'>
+                <!-- 加入了stop阻止了冒泡 -->
+                <button v-on:click.stop='handle1'>点击</button>
+            </div>
+            <h2>演示阻止a标签的默认行为--.prevent</h2>
+            <div>
+                <a href="http://www.baidu.com" v-on:click.prevent="handle2" >百度</a>
+            </div>
+            悬赏解题
+
+            <h2>5、演示回车键提交表单和点击delete键清空内容</h2>
+            1、在密码框上点击回车，也会提交内容<br>
+            2、在用户名输入框上点击delete键会清空所有<br>
+            <form action="">
+                <div>用户名：<input type="text" v-model='uname' v-on:keyup.delete='clearContert'></div>
+                <div>密码：<input type="text" v-on:keyup.enter='handleSumit' v-model='pwd'></div>
+                <div><input type="button" v-on:click='handleSumit()' value="提交"></div>
+            </form>
+        </div>
+
+        <h2>6、事件绑定-自定义按键修饰符</h2>
+        <input type="text" v-on:keyup.aaa='handle3' v-model='info'>
+
+    </div>
+    <script type="text/javascript" src="./js/vue.js"></script>
+    <script type="text/javascript">
+    // 事件绑定-参数传递
+    // 1、如果事件直接绑定函数名称，那么默认会传递事件对象作为事件函数的第一个参数
+    // 2、如果事件绑定函数调用，那么事件对象必须作为最后一个参数显示传递，并且事件对象的名称必须是$event
+    
+    // 6、事件绑定-自定义按键修饰符
+    // 规则：自定义按键修饰符名字是自定义的，但是对应的值必须是按键对应event.keyCode的值
+    Vue.config.keyCodes.aaa = 65
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                num: 0,
+                uname: '',
+                pwd: '',
+                info: ''
+            },
+            methods: {
+                handle: function(p,event){
+                    //这里的this是vue的示例对象
+                    this.num++;
+                    console.log(p);
+                    console.log(event.target.innerHTML);
+                },
+                handle0: function(){
+                    this.num++;
+                },
+                handle1: function(event){
+                    //阻止冒泡-原生的写法
+                    //event.stopPropagation();
+                },
+                handle2: function(event){
+                    //阻止默认行为
+                    // event.preventDefault();
+                },
+                handleSumit: function(){
+                    console.log(this.uname,this.pwd);
+                },
+                clearContert: function(){
+                    //按delete键的时候，清空用户名
+                    this.uname = '';
+                },
+                handle3: function(event){
+                    console.log(event.keyCode);
+                }
+            }
+        });
+    </script>
+
+    <h2>1、Vue如何处理事件？</h2>
+    
+        1)v-on指令用法
+        <input type="button" v-on:click='num++'>
+        2)v-on简写形式
+        <input type="button" @click='num++'>
+    
+    <h2>2、事件函数的调用方式</h2>
+        1)直接绑定函数名称
+        <button v-on:click='say'>hello</button>
+        2)调用函数
+        <button v-on:click='say()'>say hi</button>
+
+        3、事件函数参数传递
+        1）普通参数和事件对象
+        <button v-on:click='say("hi",$event)'>say hi</button>
+
+        4、事件修饰符
+        1）.stop 阻止冒泡
+        <a v-on:click.stop="handle">跳转</a>
+        2).prevent阻止默认行为-比如说阻止链接跳转
+        <a @click.prevent="handle">跳转</a>
+
+        5、按键修饰符
+        1）.enter回车键
+        <input v-on:keyup.enter='submit'>
+        2）.delete删除键
+        <input v-on:keyup.delete='handle'>
+
+        6、自定义按键修饰符
+        1）全局config.keyCodes对象
+           <!-- vue.config.keyCodes.f1 = 112 -->
+
+</body>
+</html>

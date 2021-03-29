@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: black;
+        }
+        li {
+            list-style: none;
+
+        }
+        a {
+            text-decoration: none;
+        }
+        img {
+            width: 200px;
+            height: 200px;
+        }
+        .wrap {
+            background-color: pink;
+            width: 700px;
+            height: 440px;
+            border: 2px solid white;
+            margin: 20px auto;
+
+        }
+
+        .wrap ul{
+            background-color: black;
+            
+        }
+
+        .wrap li {
+            float: left;
+            /* margin: 10px; */
+        }
+        .wrap li a {
+            margin-left: 5px;
+        }
+        .wrap img {
+            /* display: block; */
+            /* border: 0; */
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="wrap">
+        <ul>
+            <li><a href=""><img src="./imgs/0001.jpeg" alt=""></a></li>
+            <li><a href=""><img src="./imgs/0002.jpeg" alt=""></a></li>
+            <li><a href=""><img src="./imgs/0003.jpeg" alt=""></a></li>
+            <li><a href=""><img src="./imgs/0004.jpeg" alt=""></a></li>
+            <li><a href=""><img src="./imgs/0005.jpeg" alt=""></a></li>
+            <li><a href=""><img src="./imgs/0006.jpeg" alt=""></a></li>
+        </ul>
+    </div>
+    
+</body>
+</html>
+<script src="./js/jquery-3.5.1.js"></script>
+
+<script>
+
+    // 需求：1、给小人物所在的li标签设置鼠标移入时间：当前li标签透明度为1，其他的兄弟
+    // li标签透明度为0.4
+    // 2、鼠标离开大盒子，所有的li透明度都改为1
+    $(function(){
+        $('.wrap li').mouseenter(function(){
+            //这个css方法有返回值，返回值就是设置这个方法的元素本身
+            $(this).css('opacity',1).siblings('li').css('opacity',0.4);
+        });
+        $('.wrap').mouseleave(function(){
+            $('.wrap').find('li').css('opacity',1);
+            // console.log($(this));//在这个离开事件中，this就是这整个大盒子
+            // $(this).find('li').css('opacity',1);
+
+        })
+    });
+
+</script>

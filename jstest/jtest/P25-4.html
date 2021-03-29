@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>开关案例</title>
+    <style>
+        .bgc{
+            width:1200px;
+            height: 1200px;
+            display: block;
+            background-color: #fff;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="bgc">
+        <button class="btn">开关灯</button>
+    </div>
+    
+
+    <script>
+        btn = document.querySelector('.btn');
+        bgc = document.querySelector('div');
+
+        btn.onclick = function(){
+            if(bgc.style.backgroundColor === '#fff'){
+                bgc.style.backgroundColor = 'black';
+            }
+            
+        }
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 1、在官网中下载jquery文件
+    2、jquer有以下版本：
+       1）1.x 支持老浏览器ie789   停止更新
+       2） -->
+    <!-- <div id="one"></div>
+    <div></div>
+    <div></div> -->
+    <button>开灯</button>
+    <button>关灯</button>
+    
+</body>
+
+</html>
+<script src="./js/jquery-3.5.1.js"></script>
+<script>
+    // jquery 入口函数的写法2种写法
+    // 1、第一种
+    // $(document).ready(function() {
+
+    // });
+    // 2、第二种,较简单常用
+    // $(function() {
+
+    // });
+
+    // jquery入口函数和Window.onload入口函数的区别：
+    // 1、Window.onload入口函数不能写多个，但是jquery的入口函数可以写多个；
+    // 2、执行时机不同--jquery的入口函数先执行-要快于Window.onload--
+    // jquery入口函数要等待页面上dom树加载完毕后执行--
+    // Window.onload要等待页面上所有的资源（do树、外部css、js链接、图片等）都加载完毕后执行；
+
+
+// 1、$符号是什么？
+// 如果报了这个错误：$ is not defined ，就说明没有引入jquery文件
+
+// 2、jquery文件的结构
+// 其实是一个自执行文件
+// (function() {
+//     window.jQuery = window.$ = jQuery;
+// }());
+
+// 3、
+// a、引入一个js文件，是会执行这个js文件的代码的
+// b、jquery文件是一个自执行函数，执行这个jquery文件中的代码，其实就是执行这个自
+// 执行函数
+// c、这个自执行文件就是给Window对象添加一个jquery属性和$属性
+// d、$其实和jQuery是等价的，是一个函数
+// console.log(window.jQuery === window.$);
+// Object.prototype.toString.call($);
+
+// 4、$是一个函数 
+// 参数传递不同，效果也不一样
+// 4.1如果参数传递的是一个匿名函数-入口函数
+// $(function() {
+
+// });
+// 4.2如果参数传递的是一个字符串--就是选择器/会创建一个标签
+// $('#one')
+// $('<div>hhhh</div>')
+
+// 4.3 如果参数是一个dom对象，那他就会把dom对象转换为jQuery对象
+// $(dom对象)
+$(function() {
+    // 1、dom对象--原生js选择器获取到的对象
+    // 特点：只能调用dom方法或者属性，不能调用jQuery的属性和方法
+    // document.getElementById("");
+    // var div1 = document.getElementById("one");
+    //dom对象可以调用dom的属性和方法
+    // div1.style.backgroundColor = 'red';
+    //报错了div1.css is not a function ,因为dom对象不能调用jquery的方法
+    // div.css('backgroundColor','green');
+
+    // 2、jQuery对象
+    // 利用jQuery选择器获取到的对象
+    // 特点：只能调用jQuery的方法或者属性，不能调用js dom对象的属性或者方法
+    // var $div1 = $('#one');
+    // $div1.css('backgroundColor','green');
+    //报错，jQuery对象不能调用dom属性或方法
+    // $div1.style.backgroundColor = 'red';
+
+    // 3、jQuery对象长什么样？
+    // jQuery是一个伪数组，jQuery对象其实就是dom对象的一个包装集
+    // var div1 = document.getElementById("one");
+    // console.log(div1);
+
+    // var $div1 = $('#one');
+    // console.log($div1);
+
+
+    // 4、dom对象转换成jQuery对象
+    // var div1 = document.getElementById('one');
+    // var $div1 = $(div1);
+    // console.log($div1);
+    
+
+    // 5、jQuery对象转换成dom对象
+    // 5.1使用下标取出来
+    // var $divs = $('div');
+    // var div1 = $divs[0];
+    // console.log(div1);
+
+    // // 5.2使用jQuery的方法 get()
+    // var div2 = $divs.get(1);
+    // console.log(div2);
+
+    // 开关灯案例
+    // 需求：给按钮们添加事件：设置body背景色
+    // 1、获取按钮们
+    var btns = document.getElementsByTagName('button');
+    console.log(btns[0]);
+
+    // 2、给关灯按钮设置点击事件
+    btns[1].onclick = function() {
+        $('body').css('backgroundColor','gray');
+    }
+
+    // 3、给开灯按钮设置一个点击事件
+    $(btns[0]).click(function() {
+        $('body')[0].style.backgroundColor = 'white';
+    });
+});
+
+
+</script>

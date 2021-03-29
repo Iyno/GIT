@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <div>{{msg}}</div>
+        <div v-text='msg'></div>
+        <div v-html='msg1'></div>
+        <div v-pre>{{msg}}</div>
+    </div>
+    <script type="text/javascript" src="./js/vue.js"></script>
+    <script type="text/javascript">
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                msg: 'hello Vue',
+                msg1: '<h1>html</h1>'
+                
+            }
+        });
+    </script>
+
+    <h2>数据绑定指令</h2>
+    <ol>v-text 填充纯文本
+        <li>相比插值表达式更加简洁</li>
+    </ol>
+    <ol>v-html 填充html片段
+        <li>存在安全问题</li>
+        <li>本网站内部数据可以使用，来自第三方的数据不可以用</li>
+    </ol>
+    <ol>v-pre 填充原始信息
+        <li>显示原始信息，跳过编译部分-分析编译过程</li>
+    </ol>
+
+</body>
+
+</html>

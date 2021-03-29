@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        //   var arr = ['red','green','blue','pink','purple'];
+        //     var newArr = [];           
+        //     for (let i = arr.length - 1; i >= 0; i--) {
+        //        newArr[newArr.length] = arr[i];           
+        //     }
+        //     console.log(newArr);
+
+        // 冒泡排序
+        // var arr = [5,4,35,2,1,45];
+        // for (let i = 0; i < arr.length-1; i++) {
+        //     //外层循环管趟数--
+        //     for (let j = 0; j < arr.length-i-1; j++) {
+        //         //理财循环管每一趟交换的次数
+        //         // 内部交换两个变量的值  前一个和后一个的元素相比较
+        //         if (arr[j] > arr[j+1]) {
+        //             var temp = arr[j];
+        //             arr[j] = arr[j+1];
+        //             arr[j+1] = temp;                  
+        //         }               
+        //     }          
+        // }
+
+
+        // 函数
+        // 1、声明函数
+        // function 函数名() {
+        //     //函数体
+        // }
+        // 注意事项：
+        // 1、function 声明函数的关键字 全部小写；
+        // 2、函数是做某件事情，函数名一般是动词 sayHi；
+        // 3、函数不调用，自己不执行；
+            // function getSum() {
+            //     var sum = 0;
+            //     for (let i = 0; i <= 100; i++) {
+            //         sum += i;                    
+            //     }
+            //     console.log(sum);
+            // }
+            // getSum();
+
+
+            // 参数
+            // function 函数名(形参1，形参2...) {//在声明函数的小括号里面是 形参-形式上的参数
+
+            // }
+            // 函数名(实参1，实参2...)；//在函数调用的小括号里面是实参（实际的参数）
+        // console.log(arr);
+            // function getSum(num1,num2){
+            //     return num = num1 + num2;
+            // }
+            // console.log(getSum(3,4)); 
+
+            // var arr = [5,2,99,101,67,77];
+            // function getMax(arr){//arr接受一个数值
+            //     var max = arr[0];
+            //     for (let i = 0; i < arr.length; i++) {
+            //         if (arr[i] > max) {
+            //             max = arr[i];
+            //         }   
+            //     }
+            //     return max;
+            // }
+            // //经常用一个变量俩接受函数的返回结果，使用更简单
+            // var re = getMax(arr);
+            // console.log(re);//实参也要把数组送进去
+
+
+            // arguments的使用
+            // function fn() {
+            //     console.log(arguments);//里面存储了所有传递过来的实参
+            //     console.log(arguments.length);
+            //     console.log(arguments[0]);
+            // }
+            // fn(1,2,3);
+            //伪数组不是真正意义上的数组
+
+            // function getMax() {
+            //     var max = arguments[0];
+            //     for (let i = 0; i < arguments.length; i++) {
+            //         if (arguments[i] > max) {
+            //             max = arguments[i];
+            //         }                    
+            //     }
+            //     return max;
+            // }
+            // getMax(4,5,5,99);
+
+            // 任意翻转一个数组
+            // var arr = [1,2,3,4,5];
+            // function reArr(arr) {
+            //     var newArr = [];
+            //     for (let i = arr.length - 1; i >=0; i--) {
+            //         newArr[newArr.length] = arr[i]; 
+            //     }
+            //     return newArr;
+            // }
+            // var result = reArr(arr);
+            // console.log(result);
+
+            // 冒泡排序
+            // var arr = [3,55,6,54,7,8,88,97];
+            // function boo(arr) {
+            //     for (let i = 0; i < arr.length - 1; i++) {
+            //         for (let j = 0; j < arr.length - i -1; j++) {
+            //             var temp;
+            //             if (arr[j] > arr[j + 1]) {
+            //                 temp = arr[j];
+            //                 arr[j] = arr[j + 1];
+            //                 arr[j + 1] = temp;
+            //             }
+            //         }      
+            //     }
+            //     return arr;
+            // }
+            // var result = boo(arr);
+            // console.log(result);
+
+            // // 闰年
+            // function isRunYear(year) {
+            //     //如果是闰年返回true 否则返回 false
+            //     var flag = false;
+            //     if (year % 4 == 0 && year % 100 !=0 || year % 400 ==0) {
+            //         flag = true;
+            //     }
+            //     return flag;
+            // }
+            // console.log(isRunYear(2000));
+
+            // function run() {
+            //     var year = prompt('请输入年份：');
+            //     if (isRunYear(year)) {
+            //         alert('这个月有29天');
+            //     }else {
+            //         alert('这个月有28天');
+            //     }
+            // }
+            // run();
+
+            // var 变量名 = function(){}
+            // var fun = function (aru) {
+            //     console.log('函数表达式');
+            //     console.log(aru);
+            // }
+            // fun('pink');
+
+
+            // var num;
+            // function fn() {
+            //     var num;
+            //     console.log(num);
+            //     num = 20;
+            //     console.log(num);
+            // }
+            // num = 10;
+            // fn();
+            // var a;
+            // function f1() {
+            //     var b;
+            //     var a;
+            //     b = 9;
+            //     console.log(a);
+            //     console.log(b);
+            //     a = '123';
+            // }
+
+            // a = 18;
+            // f1();
+            
+
+            // function f1() {
+            //     // 相当于 var a = 9;b = 9;c = 9;b 和c直接赋值，没有var声明，当全局变量
+            //     var a = b = c = 9;
+            //     // 集体声明  var a = 9,b = 9,c = 9;
+            //     console.log(a);
+            //     console.log(b);
+            //     console.log(c);
+            // }
+            // f1();
+            // console.log(c);
+            // console.log(b);
+            // console.log(a);
+
+            // 1、利用字面量创建对象
+            // var obj = {};//创建了一个空的对象
+            // var obj = {
+            //     uname: 'ss',
+            //     age: 18,
+            //     sex: 'boy',
+            //     sayHi:function(){
+            //         console.log('hi~');
+            //     }
+            // }
+            // 1）、里面的属性或者方法我们采取键值对的形式  键  属性名：值 属性值
+            // 2）、多个属性或者方法中间用逗号隔开
+            // 3）、方法冒号后面跟的是一个匿名函数
+
+            // // 2、使用对象
+            // // 1）、调用对象的属性  采取 对象名.属性名 .我们理解为 的
+            // console.log(obj.age);
+            // // 2）、调用属性还有一种方法 对象名['属性名']
+            // console.log(obg['age']);
+            // // 3)、调用对象的方法  sayHi 对象名.方法名() 千万别忘记添加小括号
+            // obj.sayHi();
+
+            // 利用new object 创建对象
+            // var obj = new Object();//创建了一个空的对象
+            // obj.uname = 'jhon';
+            // obj.age = 18;
+            // obj.sex = '男';
+            // obj.sayHi = function() {
+            //     console.log('hi~');
+            // }
+            // 1)利用等号赋值的方法 添加对象的属性和方法；
+            // 2）每个属性和方法之间用分号结束
+
+            // console.log(obj.uname);
+            // console.log(obj['sex']);
+            // obj.sayHi();
+
+            // var obj = new Object();
+            // obj.uname = '鸣人';
+            // obj.sex = '男';
+            // obj.age = 19;
+            // obj.skill = function() {
+            //     console.log('影分身术');
+            // }
+
+
+            // 构造函数
+            // function 构造函数名() {
+            //     this.属性 = 值；
+            //     this.方法 = function() {
+
+            //     }
+            // }
+            // new 构造函数名();
+        //     function Star(uname,age,sex) {
+        //         this.name = uname;
+        //         this.age = age;
+        //         this.sex = sex;
+        //         this.sing = function(sang) {
+        //             console.log(sang);
+        //         }
+        //     }
+        //    var ldh = new Star('ldh',18,'男');//调用函数返回的是一个对象
+        //    console.log(ldh.name);
+        //    console.log(ldh['sex']);
+        //    ldh.sing('冰雨');
+            //1、构造函数名字首字母要大写
+            // 2、构造函数不需要return 就可以返回结果
+            //3、调用构造函数 必须使用new
+            // 4、我们只要new Star() 调用函数就创建了一个对象 ldh{}
+            // 5、属性和方法前面必须添加this
+
+            // 1、构造函数  明星 泛指的某一大类，它类似于java里的class
+        //     function Star(uname,age,sex) {
+        //         this.name = uname;
+        //         this.age = age;
+        //         this.sex = sex;
+        //         this.sing = function(sang) {
+        //             console.log(sang);
+        //         }
+        //     }
+        //     //2、对象 特指 是一个具体的事物  
+        //    var ldh = new Star('ldh',18,'男');
+        //    3、利用构造函数创建对象的过程我们也称为对象的实例化
+
+
+        // new关键字的执行过程
+        // 1、new 构造函数可以在内存中创建一个空的对象
+        // 2、this 就会指向刚才创建的空对象
+        // 3、执行构造函数里面的代码 给空对象添加属性和方法
+        // 4、返回这个对象
+        // function Star(uname,age,sex) {
+        //         this.name = uname;
+        //         this.age = age;
+        //         this.sex = sex;
+        //         this.sing = function(sang) {
+        //             console.log(sang);
+        //         }
+        //     }
+        //     var ldh = new Star('ldh',18,'男');
+
+        // 遍历对象
+        var obj = {
+            name: 'in',
+            age: 18,
+            sex: '男',
+           fn: function name() {              
+            }
+        }
+
+        // for (变量 in 对象){}
+        for (var key in obj) {
+            console.log(key);//key 输出的是属性名
+            console.log(obj[key]);//obj[key] 得到的是属性值
+        }
+        //使用for in 里面的变量  喜欢写 k 或者key
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

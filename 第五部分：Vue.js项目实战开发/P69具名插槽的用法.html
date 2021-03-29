@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <base-layout>
+            <!-- 第二步：对应填写和子组件中name值相同的数据 -->
+            <p slot='header'>标题信息</p>
+            <p>主要内容1</p>
+            <p>主要内容2</p>
+            <p slot='footer'>底部信息</p>
+        </base-layout>
+        <base-layout>
+            <!-- 第三步：使用template可以添加多条数据到插槽中，使用上面第二步的
+            只能填充一条数据-->
+            <template slot="header">
+                <p>标题信息11</p>
+                <p>标题信息22</p>
+            </template> 
+            <p>主要内容1</p>
+            <p>主要内容2</p>
+            <template slot="footer">
+                <p>底部信息11</p>
+                <p>底部信息22</p>
+            </template>
+        </base-layout>
+
+    </div>
+
+
+    <script src="./js/vue.js" type="text/javascript"></script>
+    <script type="text/javascript">
+
+        // 第一步：定义好子组件
+        Vue.component('base-layout', {
+            template: `
+              <div>
+                    <header>
+                        <slot name="header"></slot>
+                    </header>
+                    <main>
+                        <slot></slot>
+                    </main>
+                    <footer>
+                        <slot name="footer"></slot>
+                    </footer>
+              </div>
+                `
+        });
+
+        var vm = new Vue({
+            el: '#app',
+            data: {
+
+            },
+            methods: {
+
+            }
+
+        })
+
+    </script>
+
+    <br><br><br><br>
+    <div>
+        5.3具名插槽用法
+        1、插槽定义
+        <div class="container">
+            <header>
+                <slot name="header"></slot>
+            </header>
+            <main>
+                <slot></slot>
+            </main>
+            <footer>
+                <slot name="footer"></slot>
+            </footer>
+        </div>
+        2、插槽内容
+        <div id="app">
+            <base-layout>
+                <!-- 第二步：对应填写和子组件中name值相同的数据 -->
+                <p slot='header'>标题信息</p>
+                <p>主要内容1</p>
+                <p>主要内容2</p>
+                <p slot='footer'>底部信息</p>
+            </base-layout>
+        </div>
+
+    </div>
+</body>
+
+</html>

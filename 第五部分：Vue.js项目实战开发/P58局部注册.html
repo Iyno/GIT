@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <hello-world></hello-world>
+        <hello-tom></hello-tom>
+        <hello-jerry></hello-jerry>
+    </div>
+    
+    <script src="./js/vue.js" type="text/javascript"></script>
+    <script type="text/javascript">
+    //  局部组件注册
+    // 局部组件只能在注册她的父组件中使用
+    var HelloWorl = {
+        data: function(){
+            return {
+                msg: 'HelloWorld'
+            }
+        },
+        template: '<div>{{msg}}</div>'
+    };
+    var HelloTom = {
+        data: function(){
+            return {
+                msg: 'HelloTom'
+            }
+        },
+        template: '<div>{{msg}}</div>'
+    };
+    var HelloJerry = {
+        data: function(){
+            return {
+                msg: 'HelloJerry'
+            }
+        },
+        template: '<div>{{msg}}</div>'
+    };
+
+    var vm = new Vue({
+        el:'#app',
+        data: {
+
+        },
+        components: {
+            // 组件注册
+            'hello-world': HelloWorl,
+            'hello-tom': HelloTom,
+            'hello-jerry': HelloJerry,
+        }
+        
+    })
+    
+    </script>
+
+    <div>
+        2.4局部组件注册--局部组件只能在注册他的父组件中使用
+        var ComponentA = {/*...*/}
+        var ComponentA = {/*...*/}
+        var ComponentA = {/*...*/}
+
+        new Vue({
+            el: '#app',
+            'component-a':ComponentA,
+            'component-b':ComponentB,
+            'component-c':ComponentC,
+        })
+
+    </div>
+    
+</body>
+</html>

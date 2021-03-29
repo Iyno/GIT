@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>小米侧边栏练习</title>
+    <style>
+        /* 1、把a转换为块级元素 */
+        /* 把链接转换成块级元素 */
+        /* 2、鼠标经过链接变换背景颜色 */
+        div {
+            width: 240px;
+            height: 350px;
+            background-color: gray;
+            color: white;
+        }
+
+        div ul{
+            /* text-align: left; */
+            /* margin-left: -40px; */
+            width: 240px;
+
+        }
+
+
+        div ul li{
+            list-style: none;
+            display: block;
+            height: 50px;
+            width: 200px;
+            margin-left: -40px;
+            
+        }
+
+        div ul a{
+            text-decoration: none;
+            line-height: 50px;
+            color: white;
+            font-weight: 700;
+            display: block;
+            width: 210px;
+            /* 因为paddingleft走了30，所以宽度要对应减去30 */
+            padding-left: 30px;
+        }
+
+        div ul a:hover{
+            background-color: orange;
+            /* overflow: hidden; */
+            /* margin-left: -30px; */
+        }
+
+    </style>
+</head>
+
+<body>
+    <div>
+        <ul>
+            <li><a href="#">手机 电话卡</a></li>
+            <li><a href="">电视 盒子</a></li>
+            <li><a href="">笔记本 平板</a></li>
+            <li><a href="">出行 穿戴</a></li>
+            <li><a href="">智能 路由器</a></li>
+            <li><a href="">健康 儿童</a></li>
+            <li><a href="">耳机 音响</a></li>
+        </ul>
+    </div>
+</body>
+
+</html>

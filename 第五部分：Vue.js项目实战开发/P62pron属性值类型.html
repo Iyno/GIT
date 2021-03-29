@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <div>{{pmsg}}</div>
+        <!-- 传字符 -->
+        <menu-item :pstr='pstr'></menu-item>
+        <!-- 传数值 --如果去掉冒号的绑定，则不是数值，所以要记得加冒号-->
+        <menu-item :pnum='12'></menu-item>
+        <!-- 布尔值 -->
+        <menu-item :pboo='true'></menu-item>
+        <!-- 数组 -->
+        <menu-item :parr='parr'></menu-item>
+        <!-- 5）对象Object -->
+        <menu-item :pobj='pobj'></menu-item>
+
+
+    </div>
+    
+    <script src="./js/vue.js" type="text/javascript"></script>
+    <script type="text/javascript">
+    Vue.component('menu-item',{
+        props: ['pstr','pnum','pboo','parr','pobj'],
+        template:`
+        <div>
+            <div>{{pstr}}</div>
+            <div>{{pnum}}</div>
+            <div>{{pboo}}</div>
+            <ul>
+                <li :key='index' v-for='(item,index) in parr'>{{item}}</li>
+            </ul>
+
+            <div>
+                <span>{{pobj.name}}</span>
+                <span>{{pobj.age}}</span>
+            </div>
+
+
+        </div>
+        `
+    })
+
+
+    var vm = new Vue({
+        el:'#app',
+        data: {
+            pmsg: '父组件中内容',
+            pstr: 'hello',
+            parr: ['apple','orange','banana'],
+            pobj:{
+                name: 'lilei',
+                age: 12
+            }
+
+        }
+    })
+    
+    </script>
+
+    <br><br><br>
+    <div>
+        4、props属性值类型
+           1）字符串String
+           2）数值Number
+           3）布尔值Boolean
+           4）数值Array
+           5）对象Object
+    </div>
+</body>
+</html>

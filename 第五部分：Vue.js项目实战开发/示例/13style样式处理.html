@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <h2>1、对象语法</h2>
+        <div v-bind:style='{border: borderStyle,width: widthStyle,height: heightStyle}'></div>
+        <button v-on:click='handle'>切换</button>
+        <div v-bind:style='objStyle'></div>
+        <h2>2、数组语法</h2>
+        <div v-bind:style='[objStyle,overStyle]'></div>
+
+    </div>
+    <script type="text/javascript" src="./js/vue.js"></script>
+    <script type="text/javascript">
+
+    /*
+    */
+    var vm = new Vue({
+        el:'#app',
+        data: {
+            borderStyle: '1px solid red',
+            widthStyle: '100px',
+            heightStyle: '100px',
+            objStyle: {
+                border: '1px solid green',
+                width: '300px',
+                height: '300px',
+                background: 'pink',
+            },
+            overStyle: {
+                border: '5px solid red',
+                width: '100px',
+                heigh: '100px'
+            }
+        },
+        methods: {
+            handle: function(){
+                this.widthStyle = '300px',
+                this.objStyle.width = '100px'
+            }
+        }
+    });
+
+    </script>
+
+    style样式处理
+    1、对象语法
+    <div v-bind:style="{color: activeColor, fontSize: fontSize}"></div>
+    2、数组语法
+    <div v-bind:style="[baseStyles, overridingStyles]"></div>
+    
+</body>
+</html>

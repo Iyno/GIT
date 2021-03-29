@@ -1,0 +1,181 @@
+在终端输入：
+brew services start mongodb-community
+
+3.3 mongoDB数据库导入数据
+mongoimport -d 数据库名称 -c 集合名词 -file 要导入的数据文件
+mongoimport -d playground -c ex --fle ./courses.json
+找到MongoDB数据库的按照目录，将安装目录下的bin目录放置在幻境变量中
+
+3.4查询文档
+1、根据条件查找文档-条件为空则查找所有的数据
+// User.find().then(result => console.log(result))
+
+//返回文档集合
+[
+  {
+    hobbies: [ '游泳' ],
+    _id: 5ff014cd5744564c6b1cdde3,
+    name: 'admin',
+    age: 22,
+    email: '50@qq.com',
+    password: 'String',
+    __v: 0
+  }
+]
+2、findOne只返回一条数据
+User.findOne({name: 'admin'}).then(result => console.log(result))
+
+3、匹配大于、小于
+//查询用户集合中年龄字段大于20小于40的用户
+User.find({age: {$gt:20,$lt:40}}).then(result => console.log(result))
+//匹配包含
+User.find({hobbies:{$in:['敲代码']}}).then(result => console.log(result))
+//选择要查询的字段
+User.find().select('name email -_id').then(result => console.log(result))
+//将数据按照年龄进行排序
+// 根据年龄进行升序排列
+User.find().sort('age').then(result => console.log(result))
+// 根据年龄进行降序排列
+User.find().sort('-age').then(result => console.log(result))
+
+skip 跳过多少条数据 limit限制查询数量
+User.find().skip(2).limit(3).then(result => console.log(result))
+
+
+3.5删除文档
+1、删除单个文件
+//查找到一条文档并且删除-返回删除的文档
+// 如果查询条件匹配了多个文档，那么将会删除第一个匹配的文档
+User.findOneAndDelete({_id:'5ff0152a3f2d1d518afa7be8'}).then(
+    result => console.log(result)
+)
+
+2、删除多个
+User.deleteMany({}).then(result => console.log(result))
+
+3、修改数据
+// 更新单个
+// User.updateOne({name:'heli'},{name: 'up'}).then(result => console.log(result))
+// 更新多个数据，第一个{是查询条件}第二个{是更新的内容}
+User.updateMany({},{age: 56}).then(result => console.log(result))
+
+3.6mongoose验证
+在创建集合规则时，可以设置当前字段的验证规则，验证失败就输入插入失败
+1required: true 必传字段
+minlength: 3 字符串的最小长度--字符串类型
+maxlength: 20 字符串最大长度
+min： 2 数值最小为2--数值类型
+max： 100 数值最大为100
+enum： ['html','css','javascript','node.js']
+trim: true 去除字符串两边的空格
+validate: 自定义验证器
+default：默认值
+
+获取错误信息：
+Post.create({title: 'a0',age: 7,category: 'lb000',author: 'bd'}).then(result => console.log(result))
+                                  .catch(error => {
+                                    //   获取错误信息对象
+                                      const err = error.errors;
+                                    //   循环错误信息对象
+                                      for(var attr in err){
+                                          console.log(err[attr]['message']);
+                                      }
+                                  })
+
+
+3.7集合关联
+通常不同集合的数据之间是有关系的，例如，文章信息和用户信息存储
+在不同集合中，但文章是某个用户发表的，要查询文章的所有信息包括
+发表用户，就需要用到集合关联
+1、使用id对集合进行关联
+2、使用populate方法进行关联集合查询
+// 用户集合规则
+const userSchema = new mongoose.Schema({
+    name: {
+        type: String,
+        required: true
+    }
+});
+// 文章集合规则
+const postSchema = new mongoose.Schema({
+    title: {
+        type: String
+    },
+    author: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
+    }
+});
+// 用户集合
+const User = mongoose.model('User',userSchema);
+//文章集合
+const Post = mongoose.model('Post',postSchema);
+
+联合查询
+Post.find().populate('author').then(result => console.log(result))
+
+3.8案例：用户信息增删改查
+1、搭建网站服务器，实现客户端与服务器的通信
+2、连接数据库，创建用户集合，向集合中插入文档
+3、当用户访问/list时，将所有用户信息查询出来
+4、将用户信息和表格html进行拼接并将拼接结果响应回客户端
+5、当用户访问/add时，呈现表单页面，并实现添加用户信息功能
+6、当用户访问/modify时，呈现修改页面，并实现修改用户信息功能
+7、当用户访问/delete时，实现用户删除功能
+
+把页面存到变量里，然后在把变量响应给客户端
+
+模板引擎
+1、模板引擎的基础概念
+1.1模板引擎
+   模板引擎是第三方模块
+   让开发者以更加友好的方式拼接字符串，使项目代码更加清晰、更加易于维护
+1.2art-template模板引擎
+    1、在命令行工具中使用 npm install art-template 命令进行下载
+    2、使用 const template = require('art-template)引入模板引擎
+    3、告诉模板引擎要拼接的数据和模板在哪 const html = template('模板路径',数据)
+    4、使用模板语法告诉模板引擎，模板与数据应该如何进行拼接
+
+1.3art-template代码示例
+//导入模板引擎
+const template = require('art-template');
+const path = require('path')
+
+const views = path.join(__dirname,'views','index.art');
+//template方法是用来拼接字符串的
+// 1、模板路径 绝对路径
+// 2、要在模板中显示的数据 对象类型
+// 返回拼接好的字符串
+const html = template(views,{
+    name: '张张',
+    age: 20
+})
+
+html代码：
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    {{ name }}
+    {{ age }} 
+</body>
+</html>
+
+1、调用template方法，告诉模板引擎，要用哪个数据和哪个模板进行拼接
+2、告诉模板引擎，数据和模板要如何拼接
+
+2模板引擎语法
+2.1 模板语法
+1、art-template同时支持两种模板语法：标准语法和原始语法
+2、标准语法可以让模板更加容易读写，原始语法具有更强大的逻辑处理能力
+   标准语法：{{ 数据 }}
+   原始语法：<%=数据%>
+
+2.2 输出
+将某项数据输出在模板中，标准语法和原始语法如下：
+   标准语法：{{ 数据 }}
+   原始语法：<%=数据%>

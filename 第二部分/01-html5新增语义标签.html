@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        header {
+            width: 100%;
+            height: 120px;
+        }
+        video {
+            height: 200px;
+            width: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+
+
+    </header>
+    <nav>nav</nav>
+    <section>
+
+    </section>
+    <!-- 谷歌浏览器把autoplay 属性给禁用了 -->
+    <!-- <audio src="./medio/nihong.mp3" controls="controls" autoplay="autoplay" loop="loop"></audio> -->
+    <!-- 不同浏览器支持不同的格式，解决方案是这个音频准备多个格式 -->
+    <audio controls="controls">
+        <source src="./medio/nihong.mp3" type="audio/mpeg">
+        <source src="./medio/nihong.ogg" type="audio/ogg">
+        你的浏览器不支持audio播放
+    </audio>
+    <!-- autoplay:音频在就绪后就能马上播放 controls：该属性向用户显示控件，比如播放按钮
+         loop：如果出现该属性，则每当音频结束时重新开始播放 src：播放音频的url -->
+
+    <video src="./medio/mi.mp4" controls="controls"></video>
+
+    兼容性写法：
+    谷歌浏览器把自动播放功能给禁用了,解决方案-给视频添加静音属性-muted
+    <video controls="controls" autoplay="autoplay" muted="muted" loop="loop" poster="./medio/min.jpg">
+        <source src="./medio/mi.mp4" />
+        <source src="./medio/mi.ogg" />
+    </video>
+    参数：
+    autoplay:autoplay-视频就绪自动播放
+    controls :controls-向用户显示播放控件
+    width：px-设置播放器宽度
+    hight：px-设置播放器高度
+    loop：loop-播放完是否继续播放该视频，循环播放
+    preload：preload-是否等价值完在播放
+    src：url地址
+    poster：Imgurl-加载等待的画面图片-还没播放时显示的图片
+    muted：muted-静音播放
+<br>
+<br>
+
+    小结：
+    1、音频标签和视频标签使用基本一致
+    2、浏览器支持情况不同
+    3、谷歌浏览器把音频和视频自动播放禁止了
+    4、我们可以给视频标签添加muted属性，视频可以自动播放，音频不可以
+    5、视频标签是重点，我们经常设置自动播放，不适用controls控件，循环和设置大小属性
+
+</body>
+
+</html>

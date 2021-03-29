@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <div>{{msg}}</div>
+        <div>{{msg.split('').reverse().join('')}}</div>
+        <!-- 也是调用函数来使用： -->
+        <div>{{reverseString}}</div>
+        <div>{{reverseString}}</div>
+        <div>{{reverseMessage()}}</div>
+        <div>{{reverseMessage()}}</div>
+
+
+    </div>
+    <script type="text/javascript" src="./js/vue.js"></script>
+    <script type="text/javascript">
+    var vm = new Vue({
+        el:'#app',
+        data: {
+            msg: 'hello Vue'
+        },
+        methods: {
+            reverseMessage: function(){
+                console.log('methods');
+                return this.msg.split('').reverse().join('');
+            }
+        },
+        computed: {
+            reverseString: function(){
+                console.log('computed');
+                return this.msg.split('').reverse().join('');
+            }
+        }
+    });
+    </script>
+
+    <h3>3、计算属性与方法的区别</h3>
+        1）计算属性是基于它们的依赖进行缓存的--同样的结果可以重复使用,节省性能
+        2）方法不存在缓存
+
+</body>
+</html>

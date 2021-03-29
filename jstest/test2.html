@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="div3"></div>
+    <p>
+        我是文字
+        <span>123</span>
+    </p>
+
+    <button id="liu">刘德华</button>
+    <button id="zhang">张学友</button>
+    <img src="./images/liu.jpeg" alt="" title="刘德华">
+    <!-- <img src="./images/zhang.jpeg" alt=""> -->
+
+
+
+    <script>
+        // P13
+        // innerHTML和innerText的区别
+        //1、innerText  不识别html标签 非标准 去除空格和换行
+        var div3 = document.getElementById('div3');
+        div3.innerText = '<strong>今天是</strong>： 2019';
+        //2、innerHTML  识别html标签 w3c标准  保留空格和换行
+        div3.innerHTML = '<strong>今天是</strong>： 2019';
+
+        //这两个属性是可读写的 可以获取元素里面的内容
+        var p = document.querySelector('p');
+        console.log(p.innerText);
+        console.log(p.innerHTML);
+
+        // P14点击按钮，修改图片
+        // 修改元素属性 src
+        // 1、获取元素
+        var liu = document.getElementById('liu');
+        var zhang = document.getElementById('zhang');
+        var img = document.querySelector('img');
+        // 2、注册事件
+        zhang.onclick = function() {
+            img.src = 'images/zhang.jpeg';
+            img.title = '张学友';
+        }
+
+        liu.onclick = function() {
+            img.src = './images/liu.jpeg';
+            img.title = '刘德华';
+        }
+    </script>
+</body>
+
+</html>

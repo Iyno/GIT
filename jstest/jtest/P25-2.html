@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>京东关闭广告</title>
+    <style>
+
+        .w{
+            width: 1190px;
+        }
+
+        .box{
+            height: 100px;
+            
+            margin: 0 auto;
+            position: relative;
+
+        }
+
+        .box img{
+            width: 1190px;
+            margin: 0 auto;
+        }
+
+        .close{
+            position: absolute;
+            top: 20px;
+            right: 20%;
+
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <div id = 'div' class="w box">
+            <img src="./images/adTop.jpg" alt="" id = 'img'>
+        <div class="close">X</div>
+
+        </div>
+    </header>
+
+    <script>
+        clo = document.querySelector('.close');
+        div = document.querySelector('#div');
+
+        clo.onclick = function(){
+            div.style.display = 'none';
+        }
+        
+
+    </script>
+
+
+</body>
+</html>

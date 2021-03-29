@@ -1,0 +1,39 @@
+/* 公共样式 */
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+@font-face {
+    /* 1、字体名称要注意 icomoon */
+    font-family: 'icomoon';
+    /* 2、一定要注意路径问题 */
+    src: url('../fonts/icomoon.eot?odlblp');
+    src: url('../fonts/icomoon.eot?odlblp#iefix') format('embedded-opentype'),
+        url('../fonts/icomoon.ttf?odlblp') format('truetype'),
+        url('../fonts/icomoon.woff?odlblp') format('woff'),
+        url('../fonts/icomoon.svg?odlblp#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+}
+.fr .icomoon {
+    font-family: 'icomoon';
+    font-size: 16px;
+    line-height: 26px;
+}
+
+/* 版心 */
+.w {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+/* 如果是经常用到的颜色，单独提取，用的时候调用一下该类就可以了 */
+.style-red {
+    /* color: #b8b8b8; */
+    color: #f5b1b7;
+}

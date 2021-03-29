@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    
+
+    <div>
+        3.1什么是系统模块
+        node运行环境提供的api，因为这些api都是以模块化的方式进行开发的，
+        所以又称node运行环境提供的api系统模块
+        如：文件模块fs--读取文件、写入文件、创建文件夹
+
+        3.2 系统模块fs文件操作
+        f:file文件  s:system 系统，文件操作系统
+        const fs = require('fs');
+        读取文件内容：
+        fs.readFile('文件路径/文件名称'[,'文件编码']，callback)
+
+        读取文件语法示例：
+        读取上一级css目录下的base.css
+        fs.readFile('../css/base.css','utf-8'(err,doc)=>{
+            如果文件读取发生错误 参数err的值为错误对象，否则err的值为null
+            doc参数为文件内容
+            if(err == null){
+                在控制台中输出文件内容
+                console.log(doc);
+            }
+        })
+
+
+        1.7模块成员导出的另一种方式
+        module.exports.version = version;
+        module.exports.sayHi = sayHi;
+        
+        exports是module.exports的别名（地址引用关系），导出对象最终以module.exports为准
+        
+        1.8模块导出两种方式的联系与区别
+    </div>
+</body>
+</html>

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>购物车案例</title>
+    <style>
+        a {
+            text-decoration: none;
+        }
+
+        input {
+            width: 30px;
+            height: 25px;
+            border: 1px solid silver;
+
+        }
+
+        .container {}
+
+        .cart {
+            margin: 10px auto;
+            width: 500px;
+            /* height: 300px; */
+            /* background-color: pink; */
+        }
+
+        .cart .title {
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            background-color: rgb(184, 184, 235);
+        }
+
+        .cart .item {
+            text-align: center;
+            height: 35px;
+            line-height: 35px;
+            /* background-color: orange; */
+            border-bottom: 1px solid green;
+        }
+
+        .cart img {
+            float: left;
+            width: 50px;
+            height: 35px;
+            /* margin-right: 50px; */
+        }
+
+        .cart .name ,.cart .del{
+            float: left;
+        }
+        .cart .change {
+            float: left;
+            margin-left: 230px;
+        }
+
+        .cart .del {
+            margin-left: 50px;
+            font-size: 30px;
+            color: red;
+        }
+        .cart .del:hover {
+
+        }
+
+        .change a {
+            width: 10px;
+            height: 10px;
+            background-color: silver;
+
+        }
+
+        .total {
+            height: 30px;
+            line-height: 30px;
+            border-bottom: 1px solid green;
+            text-align: right;
+            background-color: orange;
+        }
+    </style>
+</head>
+
+
+<body>
+    
+    <div id="app">
+        <div class="container">
+            <my-cart></my-cart>
+        </div>
+    </div>
+
+    <script src="./js/vue.js" type="text/javascript"></script>
+    <script type="text/javascript">
+
+        var CartTitle = {
+            props: ['uname'],
+            template: `
+                <div class="title">{{uname}}商品</div>
+            `
+        }
+        var CartList = {
+            props: ['list'],
+            template: `
+                <div>
+                    <div :key='item.id' v-for='item in list' class="item">
+                        <img :src="item.img" alt="">
+                        <div class="name">{{item.name}}</div>
+                        <div class="change">
+                            <a href="">-</a>
+                            <input type="text" class="num" :value='item.num' @blur='changeNum(item.id,$event)'/>
+                            <a href="">+</a>
+                        </div>
+                        <div class="del" @click='del(item.id)'>x</div>
+                    </div>
+                </div>
+            `,
+            // 1、删除的操作--一般不在子组件中删除：把要删除的id传递给父组件上面x绑定了一个del函数，函数传递了一个id
+            methods: {
+                del: function(id){
+                    // 把id传递给父组件
+                   this.$emit('cart-del',id)
+                },
+                changeNum: function(id,event){
+                    this.$emit('change-num',{
+                        id: id,
+                        num: event.target.value
+                    })
+
+                }
+            }
+        }
+        // 第三步：在子组件中接收数据props,注意传递进去的是''list'
+        var CartTotal = {
+            props: ['list'],
+            template: `
+                <div class="total">
+                    <span>总价：{{total}}</span>
+                    <button>结算</button>
+                </div>
+            `,
+            computed: {
+                // 使用计算属性来进行运算
+                total: function(){
+                    // 计算商品的总价
+                    var t = 0;
+                    this.list.forEach(item => {
+                        t += item.price * item.num;
+                        
+                    });
+                    return t;
+                }
+            }
+
+        }
+        // 购物车组件，包含三个子组件
+        Vue.component('my-cart', {
+            // 第一步：有数据,父组件里data返回
+            data: function () {
+                return {
+                    uname: '我的',
+                    list: [{
+                        id: 1,
+                        name: 'media电饭锅',
+                        price: 300,
+                        num: 1,
+                        img: './imgs/meide.jpeg'
+                    }, {
+                        id: 2,
+                        name: 'media电饭锅',
+                        price: 600,
+                        num: 8,
+                        img: './imgs/meide.jpeg'
+                    }, {
+                        id: 3,
+                        name: 'media电饭锅',
+                        price: 8800,
+                        num: 1,
+                        img: './imgs/meide.jpeg'
+                    },
+                    ]
+                }
+            },
+            // 在父组件中把子组件组合进来
+            // 第二步：绑定传递:list='list'
+            // 2、删除的操作：在父组件里通过@cart-del='delCart($event)'绑定监听
+            // 通过$event接收传过来的id
+            template: `
+                <div class='cart'>
+                    <cart-title :uname='uname'></cart-title>
+                    <cart-list :list='list' @change-num='changeNum($event)' @cart-del='delCart($event)'></cart-list>
+                    <cart-total :list='list'></cart-total>
+                </div>
+              `,
+            components: {
+                'cart-title': CartTitle,
+                'cart-list': CartList,
+                'cart-total': CartTotal
+            },
+            methods: {
+                // 3、删除的操作：
+                delCart: function(id){
+                    //根据ID删除list中对应的数据
+                    // 1、找到id所对应的数据的索引
+                    var index = this.list.findIndex(item=>{
+                        return item.id == id;
+                    });
+                    // 2、根据索引删除对应数据，1是删除的个数
+                    this.list.splice(index,1);
+                },
+                changeNum: function(val){
+                    //根据子组件传过来的数据，更新list中对应的数据
+                    this.list.some(item=>{
+                        if (item.id == val.id) {
+                            item.num = val.num;
+                            //终止遍历
+                            return true;
+                        }
+                        
+                    });
+                }
+
+            }
+        });
+
+        var vm = new Vue({
+            el: '#app',
+            data: {
+
+            },
+            methods: {
+
+            }
+
+        })
+
+    </script>
+
+    <br>
+    <br>
+    <br>
+    <div>
+        需求分析：
+        1、按照组件化方式实现业务需求
+        1）根据业务功能进行组件化划分
+        a、标题组件--展示文本
+        b、列表组件--列表展示、商品数量变更、商品删除
+        c、结算组件--计算商品总额
+
+        实现步骤：
+        1、功能实现步骤
+        a、实现整体布局和样式效果
+        b、划分独立的功能组件
+        c、组合所有的子组件形成整体结构
+        d、逐个实现各个组件功能
+        --标题组件
+        --列表组件
+        --结算组件
+
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="app">
+        <div>{{pmsg}}</div>
+        <menu-item title='来自父组件的值'></menu-item>
+        <menu-item :title='ptitle' content='hello'></menu-item>
+
+    </div>
+
+    <script src="./js/vue.js" type="text/javascript"></script>
+    <script type="text/javascript">
+       
+       Vue.component('menu-item',{
+           props: ['title','content'],
+           data: function(){
+               return {
+                   msg: '子组件本身的数据'
+               }
+           },
+           template: '<div>{{msg + "----" + title + "---" + content}}</div>'
+       });
+       Vue.component('third-com',{
+           props:['testTitle'],
+           template:'<div>{{testTitle}}</div>'
+       })
+
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                pmsg: '父组件中内容',
+                ptitle: '动态绑定的值'
+
+
+            }
+        })
+
+    </script>
+
+    <div>
+        <br><br>
+
+        4、1 父组件向子组件传值
+        1、组件内部通过props接收传递过来的值
+        Vue.component('blog-post', {
+        props: ['title'],
+        template: '<h3>{{ title }}</h3>'
+        })
+
+        2、父组件通过属性将值传递给子组件
+          静态绑定：
+        <menu-item title="来自父组件的数据"></menu-item>
+          动态绑定：
+        <menu-item :title="title"></menu-item>  
+        
+        3、props属性名规则
+          1）在props中使用驼峰形式，模板中需要使用短横线的形式
+          Vue.component('menu-item', {
+              //在js中是驼峰式的
+            props: ['menuTitle'],
+            template: '<h3>{{ title }}</h3>'
+            })
+            <!-- 在html中是短横线方式的 -->
+            <menu-item menu-title='nihao'></menu-item>
+
+          2）字符串形式的模板中没有这个限制--就是在template里没这个限制
+          Vue.component('third-com',{
+            props:['testTitle'],
+            template:'<div>{{testTitle}}</div>'
+        })
+
+    </div>
+
+</body>
+
+</html>

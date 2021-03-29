@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <div>{{msg}}</div>
+        <div>{{msg.split('').reverse().join('')}}</div>
+        <!-- 也是调用函数来使用： -->
+        <div>{{reverseString}}</div>
+    </div>
+    <script type="text/javascript" src="./js/vue.js"></script>
+    <script type="text/javascript">
+    var vm = new Vue({
+        el:'#app',
+        data: {
+            msg: 'hello Vue'
+        },
+        computed: {
+            reverseString: function(){
+                return this.msg.split('').reverse().join('');
+            }
+        }
+    });
+    </script>
+
+    <h2>计算属性</h2>
+    <h3>1、为何需要计算属性？</h3>
+    <div>表达式的计算逻辑可能会比较复杂，使用计算属性可以使模板内容更加简洁</div>
+    <h3>2、计算属性的用法-基于data里面的数据进行处理，记得return</h3>
+    <div>
+        computed: {
+            reversedMessage: function () {
+                return this.msg.split('').reverse().join('')
+            }
+        }
+    </div>
+</body>
+</html>

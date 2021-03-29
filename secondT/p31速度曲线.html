@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            overflow: hidden;
+            font-size: 20px;
+            width: 0;
+            height: 30px;
+            background-color: pink;
+            white-space: nowrap;
+            /* steps是分几步来完成我们的动画 有了steps 就不要写 ease或者linear */
+            animation: w 2s steps(10) forwards;
+        }
+        @keyframes w {
+            0% {
+                width: 0;
+            }
+            100% {
+                width: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <div>你好啊世界,你好啊世界</div>
+    <hr>
+    <br>
+    5.4速度曲线细节
+    animation-timing-function:规定动画的速度曲线，默认是"ease"
+    linear -- 动画从头到尾的速度是相同的，匀速
+    ease -- 默认，动画以低速开始，然后加快，在结束前变慢
+    ease-in  -- 动画以低速开始
+    ease-out -- 动画以低速结束
+    ease-in-out -- 动画以低速开始和结束
+    steps() -- 指定了时间函数中的间隔数量（步长）
+
+</body>
+</html>

@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		},
+		{
+			"path": "../../../../Downloads/icomoon-v1.0/fonts"
+		}
+	],
+    "settings": {
+        "liveServer.settings.multiRootWorkspaceName": "GIT"
+    }
+}

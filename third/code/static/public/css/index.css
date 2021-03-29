@@ -1,0 +1,343 @@
+/****************
+*日期：2020/07/10
+*作者：Iyno
+*用途：专有样式
+*其他：无
+*version：1.0
+*/
+
+/* 中间分类模块开始 */
+.grid{
+    height: 480px;
+  /* 父类给了高，就不用清除浮动，浮动就是为了解决-孩子浮动，父亲检测不到高度的问题 */
+}
+
+.grid-col1{
+    width: 190px;
+    height: 100%;
+    background-color: #6e6568;
+    color:#fff;
+    font-size: 16px;/*不是给字的，是给/的*/
+    position: relative;
+}
+
+.ad{
+    width: 250px;
+    height: 480px;
+    background-color:pink;
+    position: absolute;
+    top: 0;
+    left: -250px;
+}
+
+.ad-r{
+    position: absolute;
+    top: 0;
+    left: 250;
+    z-index: 999;
+    width: 0;
+    /* 这个图片做动画，所以给他增加过度 */
+    transition: all 0.8s;
+}
+
+.ad:hover .ad-r{
+    /* 鼠标经过ad这个广告大盒子的时候，里面的ad-r的宽度由0变为990 */
+    width: 1000px;
+
+}
+.grid-col1 a{
+    color: #fff;
+    font-size: 14px;
+    margin: 0 3px;
+}
+
+.grid-col1 a:hover{
+    color: #f10215;
+}
+
+
+.grid-col1 ul{
+    padding: 10px 0;
+
+}
+
+.grid-col1 ul li{
+    padding-left: 12px;
+    height: 29px;
+    line-height: 29px;
+    /* margin-left: 12px; 这里不用margin，因为这又鼠标经过的效果 */
+}
+
+.grid-col1 ul li:hover{
+    background-color: #9c9698;
+}
+
+
+/* 第二大部分的中间模块 */
+.grid-col2{
+    width: 790px;
+    height: 100%;
+    /* background-color: pink; */
+    margin-left: 10px;
+}
+
+
+
+.grid-col2-b div{
+    float: left;
+    margin-top: 10px;
+}
+
+.grid-col2-b div:last-child {
+    float: right;
+    margin-top: 10px;
+}
+
+/* 箭头部分 */
+
+.grid-col2-t{
+    position: relative;
+
+}
+
+.arrow-l,
+.arrow-r{
+    position: absolute;
+    top: 50%;
+    right: 0;
+    width: 30px;
+    height: 60px;
+    background-color: rgba(0,0,0,0.3);
+    transform: translateY(-50%);
+    text-align: center;
+    line-height: 60px;
+    font-size: 30px;
+    color:  rgba(255,255,255,.6);
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: normal;
+
+}
+
+.arrow-l{
+    left: 0;;
+}
+
+.circle{
+    width: 167px;
+    height: 20px;
+    background:  rgba(255,255,255,.3);
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 20px;
+    border-radius: 10px;
+    padding-left: 8px;
+}
+
+.circle li{
+    width: 12px;
+    height: 12px;
+    background-color: #fff;
+    border-radius: 50%;
+    float: left;
+    margin: 4px 4px 0;
+    /* 鼠标经过li之后变成小手 */
+    cursor: pointer;
+}
+
+.circle .current{
+    background-color: #f10215;
+}
+
+
+/* 第二大部分右边模块 */
+.grid-col3{
+    width: 190px;
+    height: 100%;
+    /* background-color: skyblue; */
+}
+
+/* 右边模块 */
+.login{
+    height: 85px;
+    border-bottom: 1px solid #ccc;
+    background-color:#fff;
+    /* 整个内容居中在里面的，直接在外层div设置padding，对应的高度要减少30px */
+    padding: 15px;
+
+}
+
+.login-t{
+    width: 95px;
+    height: 60px;
+    font-size: 12px;
+    line-height: 20px;
+    /* 超出部分显示为省略号的做法 */
+    white-space: nowrap; /*强制一行内显示 */
+    overflow: hidden; /*溢出部分隐藏 */
+    text-overflow: ellipsis;/*超出的部分显示省略号*/
+    color: #666666;
+    padding-left: 60px;/*这里给padding 把文字挤过来*/
+    position: relative;
+
+}
+
+.login-t a{
+    color: #666;
+}
+
+.login-t a:hover{
+    color: #f10512;
+}
+
+.user-info{
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    border-radius: 50%;
+    overflow: hidden;
+    /* 京东的这个图的外边框是一个精灵图做的背景，我这没有找到合适的精灵图，所以外面的小圆圈就没显示出来 */
+    background: url(../images/circle.png) no-repeat -70px 0;
+}
+.user-info img{
+    width: 50px;
+    height: 50px;
+}
+
+.login-b a{
+    display: inline-block;
+    width: 70px;
+    height: 20px;
+    line-height: 20px;
+    border: 2px solid #f10215;
+    margin-right: 3px;
+    text-align: center;
+    color: #f10215;
+
+}
+
+.login-b a:hover{
+    background-color: #f10215;
+    color: #fff;
+}
+
+/* 新闻模块 */
+
+.news{
+    height: 154px;
+    border-bottom: 1px solid #ccc;
+    background-color: #fff;
+    padding: 7px 13px 0;
+    /* 添加了padding会长距离，所以要加下面的设置 */
+    box-sizing: border-box;
+}
+
+.news-t{
+    height: 19px;
+    border-bottom: 1px solid #ccc;
+    position: relative;
+}
+
+.news-t a{
+    float: left;
+    height: 17px;
+    line-height: 17px;
+}
+.cuxiao{
+    width: 38px;
+    /* height: 17px;
+    line-height: 17px; */
+    border-right: 1px solid #ccc;
+
+}
+
+.gonggao{
+    margin-left: 15px;
+}
+
+.news-t .more{
+    float: right ;
+}
+
+.news-t div{
+    height: 2px;
+    width: 28px;
+    background-color: #f10215;
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+
+}
+
+.news-b{
+    padding-top: 20px;
+    
+
+}
+
+.news-b li{
+    height: 23px;
+    line-height: 23px;
+}
+
+.expand{
+    height: 209px;
+    background-color: #fff;
+    /* li最右边的多出了边框，可以用overflow:hidden */
+    /* expand 这个宽度继承了父亲 190 宽 */
+    overflow: hidden;
+}
+
+.expand ul{
+    /* 父亲是190 但是里面的li 宽度超过了190 摆放不开 4个li
+    此时， 让ul宽度变大 */
+    width: 195px;
+
+
+}
+
+.expand li{
+    width: 47px;
+    height: 69px;
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    float: left;
+
+}
+
+.expand li a{
+    display: block;
+    padding-top: 15px;
+    text-align: center;
+
+}
+
+.expand li i{
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    background: url(../images/jinglingtu.png) no-repeat;
+    width: 18px;
+    height: 23px;
+    background-position: -20px -80px;
+
+}
+
+.expand li:first-child i{
+    /* width: 18px;
+    height: 23px; */
+    /* background-color: pink; */
+    /* 公共部分上挪到li里
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 10px; */
+    background-position: -20px -80px;
+
+}
+
+.expand li:nth-child(2) i{
+    background-position: -20px -80px;
+
+}

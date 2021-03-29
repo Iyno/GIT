@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul li:first-child {
+            background-color: pink;
+        }
+        /* :nth-child(n)  我们要第几个 n就是几  比如选第8个，直接写:nth-child(8)*/
+        ul li:nth-child(3) {
+            background-color: green;
+        }
+        /* n可以是关键词  even 是偶数  odd是奇数 */
+        ul li:nth-child(even) {
+            background-color: yellow;
+        }
+    /* 4、常见的公式如下（如果n是公式，则从0开始计算） */
+        ul li:nth-child(2n) {
+            background-color: silver;
+        }
+        ul li:nth-child(2n+1) {
+            background-color: red;
+        }
+        /* 应用：第5n个盒子设置 */
+        ul li:nth-child(5n) {
+            background-color: skyblue;
+        }
+        /* n+5  --从第5个开始（包含第5个）到最后 */
+        ul li:nth-child(n+5) {
+            background-color: pink;
+        }
+
+        ul li:nth-child(-n+5) {
+            background-color: yellow;
+        }
+
+    </style>
+</head>
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+        <li>8</li>
+        <li>9</li>
+        <li>10</li>
+    </ul>
+
+    <hr>
+    nth-child(n)
+    1、n可以是数字、关键字和公式
+    2、n如果是数字，就是选择第几个
+    3、常见的关键词有even 偶数 odd 奇数
+    4、常见的公式如下（如果n是公式，则从0开始计算）
+    5、但是 第0个元素或者超出了元素的个数会被忽略
+
+    2n  -- 偶数
+    2n+1  --奇数
+    5n   --5 10 15...
+    n+5  --从第5个开始（包含第5个）到最后
+    -n+5  --前5个（包含第5个）
+
+
+</body>
+</html>

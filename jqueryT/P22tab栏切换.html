@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        ul {
+            list-style: none;
+        }
+        a {
+            text-decoration: none;
+        }
+        img {
+            width: 246px;
+            height: 232px;
+        }
+        .wrapper {
+            width: 1000px;
+            height: 475px;
+            margin: 0 auto;
+            margin-top: 100px;
+        }
+        .tab {
+            border: 1px solid #ddd;
+            border-bottom: 0;
+            height: 36px;
+            width: 320px;
+        }
+        .tab li {
+            position: relative;
+            float: left;
+            width: 80px;
+            height: 34px;
+            line-height: 34px;
+            text-align: center;
+            cursor: pointer;
+            border-top: 4px solid #fff;
+        }
+        .tab span {
+            position: absolute;
+            right: 0;
+            top: 10px;
+            background: #ddd;
+            width: 1px;
+            height: 14px;
+            overflow: hidden;
+        }
+        .products {
+            width: 1002px;
+            height: 476px;
+            border: 1px solid #ddd;
+        }
+        .products .main {
+            float: left;
+            display: none;
+        }
+        .products  .selected {
+            display: block;
+        }
+        .tab  .active {
+            border-color: red;
+            border-bottom: 0;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <ul class="tab">
+            <li class="tab-item active">国际大牌<span></span></li>
+            <li class="tab-item">国际大牌<span></span></li>
+            <li class="tab-item">国际大牌<span></span></li>
+            <li class="tab-item">国际大牌</li>
+        </ul>
+        <div class="products">
+            <div class="main selected">
+                <img src="./imgs/0001.jpeg" alt="">
+            </div>
+            <div class="main">
+                <img src="./imgs/0006.jpeg" alt="">             
+            </div>
+            <div class="main">
+                <img src="./imgs/0001.jpeg" alt="">              
+            </div>
+            <div class="main">
+                <img src="./imgs/0005.jpeg" alt="">           
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
+<script src="./js/jquery-3.5.1.js"></script>
+<script>
+    $(function(){
+        // 需求：给tab栏的每一个li标签设置鼠标移入事件：当前li添加active类，其他兄弟li移除activ类
+        // 找到当前tab栏索引一致的div，让他添加selected类，其他兄弟移除该类
+        $('.tab li').mouseenter(function(){
+            // 需求1
+            $(this).addClass('active').siblings('li').removeClass('active');
+            // 获取鼠标当前的这个li标签的索引
+            var xid = $(this).index();
+            // 需求2
+            $('.products>.main').eq(xid).addClass('selected').siblings('div').removeClass('selected');
+        });
+    });
+
+</script>

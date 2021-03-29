@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>兄弟组件间的数据传递</title>
+</head>
+<body>
+    
+    <div id="app">
+        <div>父组件</div>
+    </div>
+
+
+    <script src="./js/vue.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        Vue.component('test-Tom', {
+            data: function(){
+
+            },
+            template: `
+        <div>
+            <ul>
+                <li :key='index' v-for='(item,index) in parr'>{{item}}</li>
+            </ul>
+            <button @click='parr.push("lemon")'>点击</button>
+            // 第一步：在子组件中设置监听方法
+            <button @click='$emit("enlarge-text")'>扩大父组件中字体大小</button>
+        </div>
+        `
+        })
+
+        var vm = new Vue({
+            el: '#app',
+            data: {
+               
+            },
+            methods: {
+
+            }
+
+        })
+
+
+        list:[{
+            id:1,
+            name: 'media电饭锅',
+            price: 300,
+            num:1,
+            img: './imgs/meide.jpeg'
+        },{
+            id:2,
+            name: 'media电饭锅',
+            price: 600,
+            num:1,
+            img: './imgs/meide.jpeg'
+        },{
+            id:3,
+            name: 'media电饭锅',
+            price: 8800,
+            num:1,
+            img: './imgs/meide.jpeg'
+        },
+    ]
+    </script>
+
+    <br><br><br><br>
+    <div>
+        1、单独的事件中心管理组件间的通信
+            var eventHub = new Vue()
+        2、监听事件与销毁事件
+            eventHub.$on('add-todo',addTodo)
+            eventHub.$off('add-todo')
+        3、触发事件
+            eventHub.$emit('add-todo',id)
+    </div>
+</body>
+</html>

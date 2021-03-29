@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue实例的生命周期</title>
+</head>
+<body>
+    <div id="app">
+        <div>{{msg}}</div>
+        <button @click='update'>更新</button>
+        <button @click='destroy'>销毁</button>
+
+
+    </div>
+    <script type="text/javascript" src="./js/vue.js"></script>
+    <script type="text/javascript">
+    var vm = new Vue({
+        el:'#app',
+        data: {
+            msg: ' Vue的生命周期'
+        },
+        methods: {
+            update: function(){
+                this.msg = 'hello'
+            },
+            destroy: function(){
+                this.$destroy();
+            }
+        },
+        beforeCreate: function(){
+            console.log('beforeCreate');
+        },
+        Created: function(){
+            console.log('Created');
+        },
+        beforeMount: function(){
+            console.log('beforeMount');
+        },
+        Mounted: function(){
+            console.log('Mounted');
+        },
+        beforeUpdate: function(){
+            console.log('beforeUpdate');
+        },
+        updated: function(){
+            console.log('updated');
+        },
+        beforeDestroy: function(){
+            console.log('beforeDestroy');
+        },
+        destroyed: function(){
+            console.log('destroyed');
+        }
+    });
+    </script>
+
+    <div>
+        <H2>生命周期</H2>
+        1、主要阶段
+        1)挂载（初始化相关属性）
+         a--beforeCreate 
+         b--created
+         c--beforeMount
+         d--mounted
+         2)更新（元素或组件的变更操作）
+         a--beforeUpdate
+         b--updated
+         3)销毁（销毁相关属性）
+         a--beforeDestroy
+         b--destroyed
+
+         2、Vue实例的产生过程
+         1）beforeCreate在实例初始化后，数据观测和事件配置之前都被调用
+         2）created在实例创建完成后被立即调用
+         3）beforeMount在挂载开始之前被调用
+         4）mounted el被新创建的vm.$el替换，并挂载到实例上去之后用该钩子
+         5）beforeUpdate数据更新时调用，发生在虚拟DOM打补丁之前
+         6）updated由于数据更改导致的虚拟DOM重新渲染和打补丁，在这之后会调用该钩子
+         7）beforeDestory实例销毁之前调用
+         8）destroy实例销毁后调用
+
+    </div>
+</body>
+</html>

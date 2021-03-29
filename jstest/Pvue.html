@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- import style -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vant@2.10/lib/index.css" />
+
+    <!-- import script -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6/dist/vue.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vant@2.10/lib/vant.min.js"></script>
+
+    <script>
+        // Render the Button component
+        new Vue({
+            el: '#app',
+            template: `<van-button>Button</van-button>`,
+        });
+
+        // Call function component
+        vant.Toast('Message');
+
+        // Register Lazyload directive
+        Vue.use(vant.Lazyload);
+
+        import Vue from 'vue';
+        import { Area } from 'vant';
+
+        AreaList = {
+            province_list: {
+                110000: 'Beijing',
+                330000: 'Zhejiang Province'
+            },
+            city_list: {
+                110100: 'Beijing City',
+                330100: 'Hangzhou',
+            },
+            county_list: {
+                110101: 'Dongcheng District',
+                110102: 'Xicheng District',
+                110105: 'Chaoyang District',
+                110106: 'Fengtai District',
+                330105: 'Gongshu District',
+                330106: 'Xihu District',
+
+            }
+        }
+
+
+    </script>
+</head>
+
+<body>
+    <van-area title="Title" :area-list="areaList" />
+    <van-area title="Title" :area-list="areaList" value="110101" />
+    <van-area title="Title" :area-list="areaList" :columns-num="2" />
+    <van-area title="Title" :area-list="areaList" :columns-placeholder="['Choose', 'Choose', 'Choose']" />
+
+
+</body>
+
+</html>

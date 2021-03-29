@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <div>
+            <span>
+                <input type="text" v-model='fname'>
+                <button @click='add'>add</button>
+                <button @click='del'>del</button>
+                <button @click='change'>change</button>
+            </span>
+        </div>
+        <ul>
+            <li :key='index' v-for='(item,index) in list'>{{item}}</li>
+        </ul>
+    </div>
+
+    <script src="./js/vue.js" type="text/javascript"></script>
+    <script type="text/javascript"> 
+        var vm = new Vue({
+            el:　'#app',
+            data:{
+                list:['apple','orange','banana'],
+                fname: ''
+            },
+            methods: {
+                add: function(){
+                    this.list.push(this.fname);
+                },
+                del: function(){
+                    this.list.pop(this.fname);
+                },
+                change: function(){
+                    this.list = this.list.slice(0,2)
+                }
+            }
+        })
+    </script>
+    
+
+    <div>
+        1、变异方法-修改原有数据
+        1）push()
+        2）pop()
+        3)shift()
+        4)unshift()
+        5)splice()
+        6)sort()
+        7)reverse()
+
+        2、替换数组-生成新的数组,这个方法调用完后，需要重新赋值给原数组
+        1)filter()
+        2)concat()
+        3)slice()
+    </div>
+</body>
+</html>

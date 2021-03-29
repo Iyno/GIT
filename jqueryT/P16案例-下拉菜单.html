@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>菜单下拉</title>
+    <style>
+        li {
+            list-style: none;
+        }
+        #wrap {
+            margin: 0 auto;
+            width: 500px;
+            height: 40px;
+            background-color: pink;
+        }
+        #wrap ul {
+            float: left;
+            margin-top: 0;
+            margin-left: 40px;
+            background-color: blanchedalmond;
+            display: block;
+            height: 40px;
+            width: 450px;
+        }
+        #wrap ul li {
+            float: left;
+            margin-left: 20px;
+            display: block;
+            height: 40px;
+            line-height: 40px;
+            background-color: brown;
+            
+        }
+        #wrap ul li a {
+            text-decoration: none;
+        
+        }
+        #wrap ul li ul {
+            float: right;;
+            background-color: red;
+            display: none;
+        }
+
+
+    </style>
+</head>
+
+<body>
+    <div id="wrap">
+        <ul>
+            <li>
+                <a href="#">一级菜单</a>
+                <ul>
+                    <li><a href="#">二级菜单</a></li>
+                    <li><a href="#">二级菜单</a></li>
+                    <li><a href="#">二级菜单</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">一级菜单</a>
+                <ul>
+                    <li><a href="#">二级菜单</a></li>
+                    <li><a href="#">二级菜单</a></li>
+                    <li><a href="#">二级菜单</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">一级菜单</a>
+                <ul>
+                    <li><a href="#">二级菜单</a></li>
+                    <li><a href="#">二级菜单</a></li>
+                    <li><a href="#">二级菜单</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+
+</body>
+
+</html>
+
+<script src="./js/jquery-3.5.1.js"></script>
+<script>
+    // 需求：给一级菜单li设置鼠标移入事件，显示二级菜单
+    // 给一级菜单li设置鼠标离开时间，二级菜单隐藏
+    $(function(){
+
+        // 获取一级菜单li的方式
+        // 1、给一级菜单li设置鼠标移入事件，二级菜单显示
+        $('#wrap > ul > li').mouseover(function(){
+            //谁触发了鼠标移入事件，那这个this就是谁，this还是一个dom对象
+            // console.log(this);
+            // 显示就是更改display属性为block
+            $(this).children('ul').css('display','block');
+            // 或者
+            // $(this).children('ul').show();
+
+        });
+        // 2、给一级菜单li设置鼠标移出事件，二级菜单隐藏
+        $('#wrap > ul >li').mouseout(function(){
+            $(this).children('ul').hide();
+        })
+
+
+
+    })
+
+</script>

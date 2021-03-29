@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <div v-if='value==13' v-for='(value,key,index) in obj'>
+            {{value + '---' + key + '---' +index}}
+        </div>
+    </div>
+    <script type="text/javascript" src="./js/vue.js"></script>
+    <script type="text/javascript">
+    //使用元素js遍历
+        var obj = {
+            uname: 'lisi',
+            age: 12,
+            gender: 'male'
+        }
+        for (var key in obj) {
+            console.log(key, obj[key]);
+        }
+
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                obj: {
+                    uname: 'lisi',
+                    age: 13,
+                    gender: 'male'
+                }
+            }
+        });
+
+    </script>
+    4、循环结构
+    1）v-for遍历对象
+    <div v-for='(value,key,index) in object'></div>
+    2)v-if和v-for结合使用--只有符合if里面的条件才会渲染for后面的内容
+    <div v-if='value==12' v-for='(value,key,index) in object'></div>
+
+</body>
+
+</html>

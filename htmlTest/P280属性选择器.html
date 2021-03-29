@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 第一种选择 */
+        /* input[name]{
+            color: blueviolet;
+        } */
+        /* 第二种 */
+        input[type=text]{
+            color: burlywood;
+        }
+        /* 第三种 */
+        div[class^=icon]{
+            color: coral;
+        }
+        /* 第四种 */
+        section[class$=data]{
+            color: darkcyan;
+        }
+    </style>
+
+</head>
+<body>
+    <!-- 1、利用属性选择器就可以不用借助于类或者id选择器 -->
+    <!-- <input type="text" name="pwd" id="" >
+    <input type="email" > -->
+    <!-- 2、属性选择器还可以选择属性=值的某些元素 重点！！！-->
+    <input type="text" name="">
+    <input type="password" name="">
+    <!-- 3、属性选择器可以选择属性值开头的某些元素 -->
+    <div class="icon1">1</div>
+    <div class="icon2">2</div>
+    <div class="icon3">3</div>
+    <div class="icon4">4</div>
+    <div class="hhh">55</div>
+    <!-- 4、属性选择器可以选择属性值结尾的某些元素 -->
+    <section class="icon1-data">我是我</section>
+    <section class="icon2-data">你不是你</section>
+    <section class="icon3-icon">哪个是我</section>
+</body>
+</html>

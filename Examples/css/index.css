@@ -1,0 +1,6 @@
+.list-group .btn::before {
+    position: relative;
+    right: 5px;
+    content: url('../imgs/icon.svg');
+  
+}

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>手风琴</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul {
+            width: 200px;
+            height: 300px;
+            /* background-color: pink; */
+            /* border: 2px solid gray; */
+        }
+        li {
+            list-style: none;
+            border: 1px solid gray;
+            text-align: center;
+        }
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: green;
+            display: none;
+        }
+
+    </style>
+
+</head>
+<body>
+    <ul class="parentWrap">
+        <li class="menuGroup">
+            <span class="groupTitle">标题1</span>
+            <div>我是弹出来的div1</div>
+        </li>
+        <li class="menuGroup">
+            <span class="groupTitle">标题2</span>
+            <div>我是弹出来的div2</div>
+        </li>
+        <li class="menuGroup">
+            <span class="groupTitle">标题3</span>
+            <div>我是弹出来的div3</div>
+        </li>
+        <li class="menuGroup">
+            <span class="groupTitle">标题4</span>
+            <div>我是弹出来的div4</div>
+        </li>
+    </ul>
+    
+</body>
+</html>
+
+<script src="./js/jquery-3.5.1.js"></script>
+<script>
+
+    $(function(){
+        //需求：点击标题li标签，对应div显示出来
+        $('.parentWrap>.menuGroup').click(function(){
+            // $(this).children('div').css('display','block');
+            //jQuery特性：隐式迭代
+            // jQuery特性：链式编程，在于一个方法返回的是一个jQuery对象，既然是jQuery对象就可以继续电池jQuery的方法来
+            $(this).children('div').show().parent().siblings('li').children('div').hide();
+        });
+    });
+</script>

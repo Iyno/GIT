@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        li{
+            list-style: none;
+        }
+        a {
+            text-decoration: none;
+            color: black;
+            
+        }
+        .wrap{
+            margin: 200px auto;
+            height: 40px;
+            width: 600px;
+            background-color: #00bcf8;
+            border-radius: 10px;
+        }
+       
+        .wrap > ul > li {
+            float: left;
+            display: block;
+            width: 120px;
+            text-align: center;
+            line-height: 40px;
+            background-color: #7ad6fb;
+            margin-left: 60px;
+            border-radius: 5px;
+
+        }
+        .wrap ul li ul li{
+           text-align: left;
+           display: block;
+           margin-left: -10px;
+
+            
+        }
+
+        .wrap ul li ul{
+            display: none;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="wrap">
+        <ul>
+            <li>
+                <a href="#">一级菜单</a>
+                <ul>
+                    <li><a href="">二级菜单</a></li>
+                    <li><a href="">二级菜单</a></li>
+                    <li><a href="">二级菜单</a></li>
+                </ul>
+            </li>
+            <li><a href="#">一级菜单</a>
+                <ul>
+                    <li><a href="">二级菜单</a></li>
+                    <li><a href="">二级菜单</a></li>
+                    <li><a href="">二级菜单</a></li>
+                </ul>
+            </li>
+            <li><a href="#">一级菜单</a>
+                <ul>
+                    <li><a href="">二级菜单</a></li>
+                    <li><a href="">二级菜单</a></li>
+                    <li><a href="">二级菜单</a></li>
+                </ul>
+            </li>           
+        </ul>
+    </div>
+    
+</body>
+</html>
+<script src="./js/jquery-3.5.1.js"></script>
+<script>
+    $(function(){
+        // 1、鼠标移入时，显示二级菜单
+        $('.wrap >ul >li').mouseover(function(){
+            $(this).children('ul').css('display','block');
+          
+
+            console.log('hi');
+        });
+        // 2、鼠标移除时，隐藏二级菜单
+        $('.wrap > ul >li').mouseout(function(){
+            $(this).children('ul').hide();
+        });
+    });
+    // 3、思考题：
+    // 为什么不给一级菜单a标签设置鼠标移入和移出事件？
+    // 鼠标离开后选不到二级菜单
+
+
+
+</script>

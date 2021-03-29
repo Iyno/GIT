@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button {
+            /* 显示小手 */
+            cursor: pointer;
+        }
+        /* 属性选择器使用方法 */
+        /* 选择的是： 既是button 又有disabled这个属性的元素 */
+        /* 属性选择器的权重是10 */
+        button[disabled] {
+            cursor:default;
+        }
+        /* 类选择器、属性选择器、伪类选择器，权重为10 */
+    </style>
+</head>
+<body>
+    
+    <!-- disabled 禁用按钮 -->
+    <button>按钮1</button>
+    <button>按钮1</button>
+    <button disabled="disabled">按钮1</button>
+    <button >按钮1</button>
+    
+
+
+<hr>
+
+    css现状
+    1、在css2的基础上新增扩展样式
+    2、移动端支持优于pc端
+    3、不断改进中
+    4、应用相对广泛
+
+    css3 属性选择器
+
+    选择器	示例	描述
+[attr]	a[title]	匹配带有一个名为attr的属性的元素——方括号里的值。
+[attr=value]	a[href="https://example.com"]	匹配带有一个名为attr的属性的元素，其值正为value——引号中的字符串。
+[attr~=value]	p[class~="special"]	
+匹配带有一个名为attr的属性的元素 ，其值正为value，或者匹配带有一个attr属性的元素，其值有一个或者更多，至少有一个和value匹配。
+
+注意，在一列中的好几个值，是用空格隔开的。
+
+[attr|=value]	div[lang|="zh"]	匹配带有一个名为attr的属性的元素，其值可正为value，或者开始为value，后面紧随着一个连字符。
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="./css/index.css">
+    <title>我的HTML/CSS学习笔记</title>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Content here -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Navbar</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Link</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Dropdown
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </nav>
+
+        <div class="row">
+            <!-- 左侧目录开始 -->
+            <div class="col-3">
+                <ul class="list-group">
+                    <li class="list-group-item " aria-current="true">
+                        <button class="btn d-inline-flex align-items-center rounded collapsed" data-bs-toggle="collapse"
+                            data-bs-target="#content-collapse" aria-expanded="false" aria-current="true">
+                            NAV
+                        </button>
+                        <div class="collapse" id="content-collapse" style="">
+                            <ul class="list-unstyled fw-normal pb-1 small">
+                                <li><a href="./pages/nav1.html" class="d-inline-flex align-items-center rounded">nav1</a></li>
+                                <li><a href="/docs/5.0/content/typography/"
+                                        class="d-inline-flex align-items-center rounded">Typography</a></li>
+                                <li><a href="/docs/5.0/content/images/"
+                                        class="d-inline-flex align-items-center rounded">Images</a></li>
+                                <li><a href="/docs/5.0/content/tables/"
+                                        class="d-inline-flex align-items-center rounded active"
+                                        aria-current="page">Tables</a></li>
+                                <li><a href="/docs/5.0/content/figures/"
+                                        class="d-inline-flex align-items-center rounded">Figures</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    </li>
+                    <li class="list-group-item">
+                        <button class="btn d-inline-flex align-items-center rounded collapsed" data-bs-toggle="collapse"
+                            data-bs-target="#content-collapse" aria-expanded="false" aria-current="true">
+                            NAV
+                        </button>
+                        <div class="collapse" id="content-collapse" style="">
+                            <ul class="list-unstyled fw-normal pb-1 small">
+                                <li><a href="/docs/5.0/content/reboot/"
+                                        class="d-inline-flex align-items-center rounded">Reboot</a></li>
+                                <li><a href="/docs/5.0/content/typography/"
+                                        class="d-inline-flex align-items-center rounded">Typography</a></li>
+                                <li><a href="/docs/5.0/content/images/"
+                                        class="d-inline-flex align-items-center rounded">Images</a></li>
+                                <li><a href="/docs/5.0/content/tables/"
+                                        class="d-inline-flex align-items-center rounded active"
+                                        aria-current="page">Tables</a></li>
+                                <li><a href="/docs/5.0/content/figures/"
+                                        class="d-inline-flex align-items-center rounded">Figures</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="list-group-item">Morbi leo risus</li>
+                    <li class="list-group-item">Porta ac consectetur ac</li>
+                    <li class="list-group-item">Vestibulum at eros</li>
+                </ul>
+
+            </div>
+            <!-- 左侧内容页结束 -->
+            <!-- 右侧内容页面开始 -->
+            <div class="col-9">我的index首页</div>
+        </div>
+        <!-- 右侧内容页面结束 -->
+
+
+
+
+    </div>
+
+
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+        crossorigin="anonymous"></script>
+
+    <script src="/docs/5.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+        crossorigin="anonymous"></script>
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+
+    <script src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+    <script src="/docs/5.0/assets/js/docs.min.js"></script>
+</body>
+
+</html>

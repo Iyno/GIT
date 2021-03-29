@@ -1,0 +1,92 @@
+/* 公共样式 */
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+@font-face {
+    /* 1、字体名称要注意 icomoon */
+    font-family: 'icomoon';
+    /* 2、一定要注意路径问题 */
+    src: url('../fonts/icomoon.eot?odlblp');
+    src: url('../fonts/icomoon.eot?odlblp#iefix') format('embedded-opentype'),
+        url('../fonts/icomoon.ttf?odlblp') format('truetype'),
+        url('../fonts/icomoon.woff?odlblp') format('woff'),
+        url('../fonts/icomoon.svg?odlblp#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+}
+.fr .icomoon {
+    font-family: 'icomoon';
+    font-size: 16px;
+    line-height: 26px;
+}
+
+/* 版心 */
+.w {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+/* 如果是经常用到的颜色，单独提取，用的时候调用一下该类就可以了 */
+.style-red {
+    /* color: #b8b8b8; */
+    color: #f5b1b7;
+}
+
+/* 导航样式开始 */
+.nav {
+    height: 100px;
+    line-height: 100px;
+    
+}
+
+.navitems li {
+    float: right;
+    padding-left: 56px;
+    font-size: 15px;
+}
+
+.top_slider_wrapper {
+    height: 480px;
+    width:100%;
+    /* background: url('../imgs/04.jpeg') no-repeat;
+    /* 这一设置把图片铺满整个背景 
+    background-size: 100%;
+    background-position: 0px -10px;
+    background-position: center 0;
+    background-repeat: no-repeat;
+    background-attachment:fixed;
+    background-size: cover;
+    -webkit-background-size: cover;/* 兼容Webkit内核浏览器如Chrome和Safari
+    -o-background-size: cover;
+     zoom: 1;   */
+
+}
+.top_slider_wrapper img {
+    width: 100%;
+    height: 480px;
+
+
+}
+.content {
+    font-family: "Times New Roman", "游明朝", "Yu Mincho", "游明朝体", "YuMincho", "ヒラギノ明朝 Pro W3", "Hiragino Mincho Pro", "HiraMinProN-W3", "HGS明朝E", "ＭＳ Ｐ明朝", "MS PMincho", serif;
+    height: 300px;
+    background-color:pink;
+    text-align: center;
+    padding-top: 90px;
+}
+.content h1 {
+    font-size: 42px;
+    font-weight: 500;
+    line-height: 1.4em;
+}
+.content p {
+    font-size: 14px;
+    line-height: 2.4em;
+    margin-top: 30px;
+}

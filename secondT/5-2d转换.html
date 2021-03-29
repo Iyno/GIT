@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 移动盒子的位置：定位 盒子的外边距  2d转换移动 */
+        /* div {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            /* x--x轴上移动的位置；y-y轴上移动的位置 */
+            /* transform: translate(100px,100px); */
+            /* 1、只移动x坐标 */
+            /* transform: translate(100px,0); */
+            /* transform: translateX(100px); */
+            /* 2、只移动y坐标 */
+            /* transform: translate(0,100px); */
+            /* transform: translateY(100px); 
+        }*/
+
+    /* div:first-child {
+        background-color: pink;
+        width: 100px;
+        height: 100px;
+        transform: translate(30px,30px);
+    }
+    div:nth-child(2) {
+        background-color: yellow;
+        width: 100px;
+        height: 100px;
+    } */
+
+    div {
+        position: relative;
+        width: 500px;
+        height: 500px;
+        background-color: pink;
+    }
+    p {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 200px;
+        height: 200px;
+        background-color: yellow;
+        /* translate(-50%,-50%) 盒子往上走自己高度的一半 */
+        transform: translate(-50%,-50%);
+    }
+
+    </style>
+</head>
+<body>
+
+    <div>
+        <p></p>
+    </div>
+    <!-- <div></div> -->
+
+
+    <hr>
+    转换（transform）是css3中具有颠覆性的特征之一，可以实现元素的位移、旋转、缩放等效果
+    转换可以简单理解为变形
+    1、移动 ：translate
+    2、旋转： rotate
+    3、缩放：scale
+
+    4.1二维坐标系
+    2d转换是改变标签在二维平面上的位置和形状的一种技术，先来学习二维坐标系
+    x轴-水平向右
+    y轴-垂直向下
+
+    4.2 2d 转换之移动translate
+       1、语法
+       transform:tanslate(x,y)
+       transform:tanslateX(n)
+       transform:tanslateY(n)
+       2、重点
+        1）定义2D转换中的移动，沿着X和Y轴移动元素
+        2）translate最大的优点：不会影响到其他元素的位置
+        3）translate中的百分比单位是相对于自身元素的translate（50%,50%）
+        4）对行内标签没有效果
+       3、参数
+        1）translate里面的参数可以用%
+        2）如果里面的参数是% 移动的距离是盒子自身的宽度或者高度来对比的
+        如果盒子的宽度是100px，那盒子移动的距离就是50px
+       transform:tanslateX(50%)
+
+
+
+</body>
+</html>

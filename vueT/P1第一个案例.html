@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>案例：图片切换</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        a {
+            text-decoration: none;
+        }
+        #mask {
+            width: 1024px;
+            height: 1024px;
+            background-color: silver;
+        }
+        .center {
+            position: relative;
+            margin: 0 auto;
+            width: 400px;
+            height: 400px;
+            /* background-color: ; */
+        }
+        .center >img {
+            width: 400px;
+            height: 300px;
+        }
+        .center .left,.center .right {
+            display: block;
+            position: absolute;
+            width: 20px;
+            height: 50px;
+            background-color: rgb(240, 238, 238);
+            font-size: 30px;
+            line-height: 50px;
+            color: white;
+        }
+        .center .left{
+            top: 180px; 
+        }
+        .center .right {
+            top: 180px;
+            right: 2px;
+        }
+    </style>  
+</head>
+<body>
+    <div id="mask">
+        <div class="center">
+            <h2 class="title">
+                <img src="https://www.itheima.com/images/logo.png" alt="">小喵喵的相片
+            </h2>
+            <!-- 图片 -->
+            <img :src="imgArr[index]" alt="">
+            <a href="javascript:void(0)" v-show="index!=0" class="left" @click="prev"> &lt;</a>
+            <a href="javascript:void(0)" v-show="index<imgArr.length-1" class="right" @click="next"> &gt; </a>
+        </div>
+    </div>   
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el:"#mask",
+            data:{
+                imgArr:[
+                    "./imgs/0001.jpeg",
+                    "./imgs/0002.jpeg",
+                    "./imgs/0003.jpeg",
+                ],
+                index:0
+            },
+            methods: {
+                prev:function(){
+                    this.index--;
+                },
+                next:function(){
+                    this.index++;
+                }}})
+    </script>
+</body>
+</html>
+

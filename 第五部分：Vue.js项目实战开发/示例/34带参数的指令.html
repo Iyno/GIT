@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <input type="text" v-color='msg'>
+        
+    </div>
+    <script type="text/javascript" src="./js/vue.js"></script>
+    <script type="text/javascript">
+        Vue.directive('color', {
+            bind: function (el,binding) {
+                //根据指令的参数设置背景色
+                el.style.backgroundColor = binding.value.color;
+                // console.log(binding.value.color);
+            }
+        })
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                msg: {
+                    color:'pink'
+                    }
+            },
+            methods: {
+
+            }
+        });
+    </script>
+
+    <h2>4、带参数的自定义指令（改变元素背景色）</h2>
+    Vue.directive('color',{
+    inserted: function(el,binding) {
+    el.style.backgroundColor = binding.value.color;
+    }
+    })
+    <h2>5、指令的用法</h2>
+    <input type="text" v-color='orange'>
+    h
+
+</body>
+
+</html>

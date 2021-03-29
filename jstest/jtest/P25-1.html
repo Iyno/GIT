@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>世纪佳缘用户名显示隐藏内容</title>
+    <style>
+        input{
+            border: 1px solid #666;
+        }
+
+        .change{
+            border: 1px solid red ;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <input type="text" value="邮箱/ID/手机号">
+    <script>
+        inp = document.querySelector('input');
+        inp.onfocus = function(){
+            // console.log("焦点");
+            if(this.value === '邮箱/ID/手机号'){
+                this.value = '';
+                // this.type.backgroundColor = '#ff0000';
+                this.className = 'change';
+            }
+            
+        }
+        inp.onblur = function(){
+            if(this.value === ''){
+                this.value ='邮箱/ID/手机号';
+                this.className = '';
+            }
+            
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新浪下拉菜单</title>
+
+    <style>
+
+        li{
+            list-style: none;
+        }
+
+        .div1{
+            display: none;
+        }
+        .change{
+            display: block;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="top">
+        <ul>
+            <li><a href="#" id="myX">我的新浪</a></li>
+        </ul>
+        <div id="myY" class="div1">
+            <ul>
+                <li><a href="#">我的主页</a></li>
+                <li><a href="#">我的主页</a></li>
+            </ul>
+        </div>
+
+        <script>
+            var li = document.querySelector('#myX');
+            var div1 = document.querySelector('#myY')
+
+            li.onmouseover = function(){
+                div1.style.display = 'block';
+
+            }
+
+            li.onmouseout = function(){
+                div1.style.display = 'none';
+
+            }
+
+
+        </script>
+    </div>
+</body>
+</html>

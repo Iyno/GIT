@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <a v-bind:href="url">百度</a>
+        <button v-on:click='handle'>修改URL</button>
+    </div>
+    <script type="text/javascript" src="./js/vue.js"></script>
+    <script type="text/javascript">
+    var vm = new Vue({
+        el:'#app',
+        data: {
+            url: 'http://www.baidu.com'
+        },
+        methods: {
+            handle: function(){
+                this.url = 'https://apps.apple.com/cn/app/yahoo-%E5%A4%A9%E6%B0%94/id628677149'
+            }
+        }
+    });
+
+    </script>
+    <h1>属性绑定</h1>
+    <h2>1、Vue如何动态处理属性</h2>
+        1)v-bind指令用法 <br>
+        <a v-bind:href="url">跳转</a> <br>
+        2）缩写形式 <br>
+        <a :href="">跳转</a>  <br>
+</body>
+</html>

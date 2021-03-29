@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>淘宝轮播图</title>
+    <!-- https://www.bilibili.com/video/av74964956?p=243 -->
+    <style>
+        * {
+            margin: 0;
+            padding:0;
+        }
+        li {
+            list-style: none;
+        }
+        .tb-promo {
+            position: relative;
+            width: 520px;
+            height: 280px;
+            margin: 100px auto;
+        }
+        .tb-promo  img {
+            width: 520px;
+            height: 280px;
+        }
+        .prev,.next {
+            /* 相同的样式合并 */
+            position: absolute;
+            top: 50%;
+            /* 绝对定位垂直居中 */
+            margin-top: -15px;
+            /* 加了绝对定位的盒子，可以直接加宽高，而不用转换成block */
+            width: 20px;
+            height: 30px;
+            background: rgba(0,0,0,.3);
+            text-align:center;
+            line-height: 30px;
+            color:#fff;
+            text-decoration: none;
+        }
+        .prev {    
+            left: 0;
+            /* 加了绝对定位的盒子，可以直接加宽高，而不用转换成block */
+            border-radius: 0 15px 15px 0;
+        }
+        .next {
+            right: 0;
+            border-radius: 15px 0 0 15px;
+        }
+        /* 小圆点 */
+        .promo-nav {
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            margin-left: -35px;
+            width: 70px;
+            height: 13px;
+            background:rgba(255, 255, 255, .3);
+            border-radius: 7px;
+        }
+        .promo-nav li {
+            float: left;
+            width: 8px;
+            height: 8px;
+            background-color: #fff;
+            border-radius: 4px;
+            margin: 3px;
+        }
+        /* 不要忘记选择器权重的问题 */
+        .promo-nav .selected {
+            background-color: #ff5000;
+        }
+    </style>
+</head>
+<body>
+    <div class="tb-promo">
+        <img src="./images/ad1.jpg" alt="">
+        <!-- 左侧按钮箭头 -->
+        <a href="#" class="prev">&lt;</a>
+        <a href="#" class="next">&gt;</a>
+        <!-- 小圆点 -->
+        <ul class="promo-nav">
+            <li class="selected"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    
+</body>
+</html>

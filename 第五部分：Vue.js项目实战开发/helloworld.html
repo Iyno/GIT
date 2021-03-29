@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+    <div id="app">
+        <div>{{msg}}</div>
+    </div>
+    <script type="text/javascript" src="./js/vue.js"></script>
+    <script type="text/javascript">
+    var vm = new Vue({
+        el:'#app',
+        data: {
+            msg: 'hello Vue'
+        }
+    });
+    </script>
+
+vue使用步骤
+1、需要提供标签用于填充数据
+2、引入vue.js库文件
+3、可以使用vue的语法做功能了
+4、把vue提供的数据填充到标签里
+
+<br><br>
+vue.js之hello world 细节分析<br>
+<ul>
+    <li>1、实例参数分析：
+        <ul>
+            <li>el:元素的挂载位置（值可以是css选择器或则dom元素）</li>
+            <li>data：模型数据-值是一个对象</li>
+        </ul>
+    </li>
+    <li>
+        2、插值表达式用法--{{}}
+        <li>将数据填充到html标签中</li>
+        <li>插值表达式支持基本的计算操作</li>
+    </li>
+    <li>
+        3、vue代码运行原理分析
+        <li>概述编译过程的概念--vue语法-原生语法</li>
+    </li>
+</ul>
+
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML骨架继承</title>
+    {{block 'head'}} {{/block}}
+</head>
+<body>
+    {{block 'content'}} {{/block}}
+
+    <!-- index.art 首页模板 -->
+    {{extent './layout.art'}}
+    {{block 'head'}} <link rel="stylesheet" href="custom.css"> {{/block}}
+    {{block 'content'}} <p>This is just an awesome page.</p> {{/block}}
+
+    
+</body>
+</html>

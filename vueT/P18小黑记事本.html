@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>小黑记事本</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        li {
+            list-style: none;
+        }
+        button,input {
+            outline-style: none;
+        }
+        body {
+            background-color: #f8f6f8;
+        }
+        #todoapp {
+            margin: 50px auto;
+            width: 500px;
+            height: 500px;
+            /* background-color: pink; */
+            text-align: center;
+        }
+        #todoapp h1 {
+            font-size: 40px;
+        }
+        #todoapp input {
+            width: 300px;
+            height: 35px;
+        }
+        .main  ul {
+            /* background-color: #fff; */
+        }
+        .main li {
+            margin: 0 auto;
+            width: 300px;
+            height: 35px;
+            line-height: 35px;
+            border: 1px solid silver;
+            text-align: left;
+            color: rgb(134, 132, 132);
+            
+        }
+        .main li span {
+            padding-right: 20px;
+            padding-left: 10px;
+        }
+        .view {
+            position: relative;
+        }
+        .destroy {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            border: 0px;
+            display: none;
+        }
+        .todo:hover .destroy{
+            display: block;         
+        }
+        .footer {
+            margin: 0 auto;
+            width: 300px;
+            height: 25px;
+            line-height: 25px;
+            border: 1px solid silver;
+            text-align: left;
+            color: rgb(134, 132, 132);
+            
+        }
+        .todo-count {
+            float: left;
+            padding-left: 5px;
+            font-size: 12px;
+        }
+        .clear-completed {
+            float: right;
+            border: 0px;
+            padding-top: 5px;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- 主体区域 -->
+    <section id="todoapp">
+        <!-- 输入框 -->
+        <header class="header">
+            <h1>小黑记事本</h1>
+            <input v-model="inputValue"   @keyup.enter="add" type="text" autofocus="autofocus" 
+            autocomplete="off" placeholder="请输入任务"
+            class="new-todo">
+        </header>
+        <!-- 列表区域 -->
+        <section class="main">
+            <ul class="todo-list">
+                <li class="todo" v-for="(item,index) in list">
+                    <div class="view">
+                        <span class="index">{{index+1}}</span>
+                        <label for="">{{ item }}</label>
+                        <button class="destroy" @click="remove(index)">X</button>
+                    </div>
+                </li>
+            </ul>
+        </section>
+        <!-- 统计和清空 -->
+        <footer class="footer" v-show="list.length!=0">
+            <span class="todo-count" v-if="list.length!=0">
+                <strong>{{ list.length }}</strong>
+                "items left"
+            </span>
+            <button class="clear-completed" @click="clear"
+            v-show="list.length!=0">Clear</button>
+        </footer>
+    </section>
+    <!-- 底部 -->
+    <footer class="info"></footer>
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el:"#todoapp",
+            data:{
+                list:["写代码","吃饭饭","睡觉觉"],
+                inputValue:"好好学习，天天向上",
+            },
+            methods:{
+                    add:function(){
+                        this.list.push(this.inputValue);
+                    },
+                    remove:function(index){
+                        this.list.splice(index,1);
+                    },
+                    clear:function(){
+                        this.list = [];
+                    }
+
+                }
+        })
+    </script>
+
+</body>
+</html>
+<!-- 功能：
+1、新增
+2、删除
+3、统计
+4、清空
+5、隐藏 -->
+
+<!-- 删除：
+1、点击删除指定内容（v-on splice 索引)
+2、数据改变，和数据绑定的元素同步改变
+3、事件的自定义参数
+4、splice方法的作用 -->
+
+<!-- 统计
+1、基于数据的开发方式-本次长度本质上是数组的长度
+2、v-text指令的作用 -->
+
+<!-- 清空--一次性删除所有信息
+1、点击清楚所有信息（v-on 清空数组） -->
+
+<!-- 隐藏-没有数据时，隐藏元素
+1、没有数据时，隐藏元素-(v-show v-if 数组非空） -->
+
+<!-- 1、列表结构可以通过v-for指令结合数据生成
+2、v-on结合事件修饰符可以对事件进行限制，比如.enter 
+3、v-on在绑定事件时可以传递自定义参数
+4、通过v-model可以快速的设置和获取表单元素的值
+5、基于数据的开发方式 -->

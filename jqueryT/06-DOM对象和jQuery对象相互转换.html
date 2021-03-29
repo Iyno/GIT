@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/jquery-3.5.1.js"></script>
+    <style>
+        div {
+            height: 200px;
+            width: 200px;
+            background-color: pink;
+        }
+    </style>
+
+</head>
+<body>
+
+    <div></div>
+    
+
+    <script>
+        // 1、DOM对象转换为 jquery对象
+        // 1）我们直接获取div，得到的就是一个juery对象
+        $('div');
+        // 2) 已经使用原生js 获取过来的 dom对象
+        var mydiv = document.querySelector('div');
+        $(mydiv).hide();//注意不要加'''
+
+        // 2、 jquery 对象转换为dom对象
+        $('div')[0].hide();
+        $('div').get(0).hide();
+
+
+
+        
+
+    </script>
+    
+</body>
+</html>
